@@ -1,0 +1,11 @@
+﻿Release Notes
+--------------------------------------------------------
+Data: 23/01/2016
+- RegisterStudentForm: Troca de monthCalendar por dateTimePicker
+- RegisterStudentForm: Adicionando campo sobrenome
+- RegisterStudentForm: Adicionando botões "Ok" e "Cancela"
+- RegisterStudentForm: Validação nos campos nome, sobrenome e CPF
+- Adicionando classe Student e ValidadorCPF
+--------------------------------------------------------
+Data: 
+- Versão inicial

@@ -42,6 +42,7 @@ namespace PaymentProcessor
                 timer.Stop();
                 timer.Start();
             }
+
             if (inputToLabel)
             {
                 label2.Text = label2.Text + e.KeyChar;

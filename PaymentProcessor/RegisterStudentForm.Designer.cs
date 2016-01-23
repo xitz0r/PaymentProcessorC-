@@ -31,18 +31,21 @@
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.labelNome = new System.Windows.Forms.Label();
             this.labelNascimento = new System.Windows.Forms.Label();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.buttonNascimento = new System.Windows.Forms.Button();
             this.labelCPF = new System.Windows.Forms.Label();
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.labelCartao = new System.Windows.Forms.Label();
             this.buttonCartao = new System.Windows.Forms.Button();
             this.labelSwipedCard = new System.Windows.Forms.Label();
+            this.dateTimePickerNascimento = new System.Windows.Forms.DateTimePicker();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.textBoxSobrenome = new System.Windows.Forms.TextBox();
+            this.labelSobrenome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(111, 89);
+            this.textBoxNome.Location = new System.Drawing.Point(111, 29);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(100, 20);
             this.textBoxNome.TabIndex = 1;
@@ -50,7 +53,7 @@
             // labelNome
             // 
             this.labelNome.AutoSize = true;
-            this.labelNome.Location = new System.Drawing.Point(25, 92);
+            this.labelNome.Location = new System.Drawing.Point(25, 32);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(38, 13);
             this.labelNome.TabIndex = 2;
@@ -59,33 +62,16 @@
             // labelNascimento
             // 
             this.labelNascimento.AutoSize = true;
-            this.labelNascimento.Location = new System.Drawing.Point(25, 128);
+            this.labelNascimento.Location = new System.Drawing.Point(25, 112);
             this.labelNascimento.Name = "labelNascimento";
             this.labelNascimento.Size = new System.Drawing.Size(66, 13);
             this.labelNascimento.TabIndex = 3;
             this.labelNascimento.Text = "Nascimento:";
             // 
-            // monthCalendar
-            // 
-            this.monthCalendar.Location = new System.Drawing.Point(63, 192);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 4;
-            this.monthCalendar.Visible = false;
-            // 
-            // buttonNascimento
-            // 
-            this.buttonNascimento.Location = new System.Drawing.Point(111, 123);
-            this.buttonNascimento.Name = "buttonNascimento";
-            this.buttonNascimento.Size = new System.Drawing.Size(75, 23);
-            this.buttonNascimento.TabIndex = 5;
-            this.buttonNascimento.Text = "Selecionar dia";
-            this.buttonNascimento.UseVisualStyleBackColor = true;
-            this.buttonNascimento.Click += new System.EventHandler(this.buttonBirthday_Click);
-            // 
             // labelCPF
             // 
             this.labelCPF.AutoSize = true;
-            this.labelCPF.Location = new System.Drawing.Point(25, 61);
+            this.labelCPF.Location = new System.Drawing.Point(25, 84);
             this.labelCPF.Name = "labelCPF";
             this.labelCPF.Size = new System.Drawing.Size(30, 13);
             this.labelCPF.TabIndex = 6;
@@ -94,18 +80,18 @@
             // maskedTextBoxCPF
             // 
             this.maskedTextBoxCPF.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBoxCPF.Location = new System.Drawing.Point(111, 58);
+            this.maskedTextBoxCPF.Location = new System.Drawing.Point(111, 81);
+            this.maskedTextBoxCPF.Mask = "000.000.000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
-            this.maskedTextBoxCPF.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBoxCPF.TabIndex = 7;
-            this.maskedTextBoxCPF.Text = "000.000.000-00";
+            this.maskedTextBoxCPF.TabIndex = 3;
+            this.maskedTextBoxCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBoxCPF.TextChanged += new System.EventHandler(this.maskedTextBoxCPF_TextChanged);
             // 
             // labelCartao
             // 
             this.labelCartao.AutoSize = true;
-            this.labelCartao.Location = new System.Drawing.Point(25, 162);
+            this.labelCartao.Location = new System.Drawing.Point(25, 138);
             this.labelCartao.Name = "labelCartao";
             this.labelCartao.Size = new System.Drawing.Size(41, 13);
             this.labelCartao.TabIndex = 8;
@@ -113,10 +99,10 @@
             // 
             // buttonCartao
             // 
-            this.buttonCartao.Location = new System.Drawing.Point(111, 157);
+            this.buttonCartao.Location = new System.Drawing.Point(111, 133);
             this.buttonCartao.Name = "buttonCartao";
-            this.buttonCartao.Size = new System.Drawing.Size(75, 23);
-            this.buttonCartao.TabIndex = 9;
+            this.buttonCartao.Size = new System.Drawing.Size(100, 23);
+            this.buttonCartao.TabIndex = 5;
             this.buttonCartao.Text = "Passar cartão";
             this.buttonCartao.UseVisualStyleBackColor = true;
             this.buttonCartao.Click += new System.EventHandler(this.buttonCartao_Click);
@@ -125,31 +111,85 @@
             // 
             this.labelSwipedCard.AutoSize = true;
             this.labelSwipedCard.ForeColor = System.Drawing.Color.Green;
-            this.labelSwipedCard.Location = new System.Drawing.Point(207, 162);
+            this.labelSwipedCard.Location = new System.Drawing.Point(217, 138);
             this.labelSwipedCard.Name = "labelSwipedCard";
             this.labelSwipedCard.Size = new System.Drawing.Size(0, 13);
             this.labelSwipedCard.TabIndex = 10;
             // 
+            // dateTimePickerNascimento
+            // 
+            this.dateTimePickerNascimento.Checked = false;
+            this.dateTimePickerNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerNascimento.Location = new System.Drawing.Point(111, 107);
+            this.dateTimePickerNascimento.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerNascimento.Name = "dateTimePickerNascimento";
+            this.dateTimePickerNascimento.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerNascimento.TabIndex = 4;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(174, 206);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(67, 22);
+            this.buttonCancel.TabIndex = 7;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // buttonOk
+            // 
+            this.buttonOk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonOk.Location = new System.Drawing.Point(101, 206);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(67, 22);
+            this.buttonOk.TabIndex = 6;
+            this.buttonOk.Text = "Salvar";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            // 
+            // textBoxSobrenome
+            // 
+            this.textBoxSobrenome.Location = new System.Drawing.Point(111, 55);
+            this.textBoxSobrenome.Name = "textBoxSobrenome";
+            this.textBoxSobrenome.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSobrenome.TabIndex = 2;
+            // 
+            // labelSobrenome
+            // 
+            this.labelSobrenome.AutoSize = true;
+            this.labelSobrenome.Location = new System.Drawing.Point(25, 58);
+            this.labelSobrenome.Name = "labelSobrenome";
+            this.labelSobrenome.Size = new System.Drawing.Size(64, 13);
+            this.labelSobrenome.TabIndex = 15;
+            this.labelSobrenome.Text = "Sobrenome:";
+            // 
             // RegisterStudentForm
             // 
+            this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(253, 247);
+            this.Controls.Add(this.labelSobrenome);
+            this.Controls.Add(this.textBoxSobrenome);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOk);
+            this.Controls.Add(this.dateTimePickerNascimento);
             this.Controls.Add(this.labelSwipedCard);
             this.Controls.Add(this.buttonCartao);
             this.Controls.Add(this.labelCartao);
             this.Controls.Add(this.maskedTextBoxCPF);
             this.Controls.Add(this.labelCPF);
-            this.Controls.Add(this.buttonNascimento);
-            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.labelNascimento);
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.textBoxNome);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegisterStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RegisterStudentForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterStudentForm_FormClosed);
-            this.Load += new System.EventHandler(this.RegisterStudentForm_Load);
+            this.Text = "Cadastrar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterStudentForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,12 +199,15 @@
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.Label labelNascimento;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.Button buttonNascimento;
         private System.Windows.Forms.Label labelCPF;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
         private System.Windows.Forms.Label labelCartao;
         private System.Windows.Forms.Button buttonCartao;
         private System.Windows.Forms.Label labelSwipedCard;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
+        private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.TextBox textBoxSobrenome;
+        private System.Windows.Forms.Label labelSobrenome;
     }
 }
