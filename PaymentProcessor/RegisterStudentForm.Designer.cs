@@ -86,7 +86,6 @@
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBoxCPF.TabIndex = 3;
             this.maskedTextBoxCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.maskedTextBoxCPF.TextChanged += new System.EventHandler(this.maskedTextBoxCPF_TextChanged);
             // 
             // labelCartao
             // 

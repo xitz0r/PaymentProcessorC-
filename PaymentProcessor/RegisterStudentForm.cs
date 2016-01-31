@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -14,15 +15,13 @@ namespace PaymentProcessor
 {
     public partial class RegisterStudentForm : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename='" + Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\dbpp.mdf';Integrated Security = True; Connect Timeout = 30");
+        SqlCommand sqlCmd;
+        bool bSave = false;
+
         public RegisterStudentForm()
         {
             InitializeComponent();
-        }
-
-        private void maskedTextBoxCPF_TextChanged(object sender, EventArgs e)
-        {
-            //maskedTextBoxCPF.Text = maskedTextBoxCPF.Text.PadLeft(11, '0');
-            //TODO mascarar CPF
         }
 
         private void buttonCartao_Click(object sender, EventArgs e)
@@ -67,37 +66,47 @@ namespace PaymentProcessor
                     errorMsg = "Cadastre o cartão";
             }
 
+            //checking if student is on the db
+            sqlCmd = sqlConnection.CreateCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlConnection.Open();
+
+            sqlCmd.CommandText = "SELECT COUNT(*) FROM STUDENT WHERE cpf='" + this.maskedTextBoxCPF.Text + "'";
+            int teste = (int)sqlCmd.ExecuteScalar();
+            if ((teste > 0) && (errorMsg == ""))
+                errorMsg = "Estudante já cadastrado";
+
             if (errorMsg != "") //at least one field with error
             {
+                sqlConnection.Close();
                 SystemSounds.Beep.Play();
                 MessageBox.Show(errorMsg, "Erro");
                 return;
             }
 
-            //TODO salvar student no db
-            /*
-            SqlConnection sqlConnection1 = new SqlConnection();
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "SELECT * FROM Student";// where cpf=" + ;
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-            // Data is accessible through the DataReader object here.
-
-            sqlConnection1.Close();
-            */
+            Insert_Student(sqlCmd);
+            bSave = true;
+            sqlConnection.Close();
             this.Close();
         }
 
         private void RegisterStudentForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Esta ação cancelará o cadastro. Confirma?", "Fechar cadastro", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            if (!bSave && MessageBox.Show("Esta ação cancelará o cadastro. Confirma?", "Fechar cadastro", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 e.Cancel = true;
+        }
+
+        private void Insert_Student(SqlCommand cmd)
+        {
+            string sDate = this.dateTimePickerNascimento.Value.ToString().Substring(0, 10);
+
+            sqlCmd.CommandText = "INSERT INTO Student (cpf, name, lastName, birthday) VALUES ('"
+                + this.maskedTextBoxCPF.Text + "', '"
+                + this.textBoxNome.Text + "', '"
+                + this.textBoxSobrenome.Text + "', '"
+                + sDate.Substring(6, 4) + sDate.Substring(3, 2) + sDate.Substring(0, 2) + "')";
+
+            sqlCmd.ExecuteNonQuery();
         }
     }
 }
