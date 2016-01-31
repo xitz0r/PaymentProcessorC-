@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -62,18 +63,34 @@ namespace PaymentProcessor
                     errorMsg = "CPF inválido";
                 }
 
-                if ((errorMsg == "") && (!labelSwipedCard.Visible))
+                if ((errorMsg == "") && (labelSwipedCard.Text == ""))
                     errorMsg = "Cadastre o cartão";
             }
 
             if (errorMsg != "") //at least one field with error
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(errorMsg);
+                MessageBox.Show(errorMsg, "Erro");
                 return;
             }
 
             //TODO salvar student no db
+            /*
+            SqlConnection sqlConnection1 = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = "SELECT * FROM Student";// where cpf=" + ;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = sqlConnection1;
+
+            sqlConnection1.Open();
+
+            reader = cmd.ExecuteReader();
+            // Data is accessible through the DataReader object here.
+
+            sqlConnection1.Close();
+            */
             this.Close();
         }
 

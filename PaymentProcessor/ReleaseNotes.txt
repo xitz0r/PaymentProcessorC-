@@ -1,5 +1,8 @@
 ﻿Release Notes
 --------------------------------------------------------
+Data: 31/01/2016
+- Adicionando referências e modelagem sql server
+--------------------------------------------------------
 Data: 23/01/2016
 - RegisterStudentForm: Troca de monthCalendar por dateTimePicker
 - RegisterStudentForm: Adicionando campo sobrenome
