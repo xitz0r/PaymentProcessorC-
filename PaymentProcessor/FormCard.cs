@@ -67,7 +67,6 @@ namespace PaymentProcessor
                     if (this.timer.Enabled)
                     {
                         this.timer.Stop();
-                        formParent.labelSwipedCardText = "ok!";
                         this.Close();
                     }
                 }
