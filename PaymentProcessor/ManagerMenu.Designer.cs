@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerMenuForm));
-            this.buttonStudent = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonCard = new System.Windows.Forms.Button();
             this.buttonRefill = new System.Windows.Forms.Button();
             this.buttonStudentPassword = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonStudent
+            // buttonRegister
             // 
-            this.buttonStudent.Location = new System.Drawing.Point(37, 59);
-            this.buttonStudent.Name = "buttonStudent";
-            this.buttonStudent.Size = new System.Drawing.Size(112, 100);
-            this.buttonStudent.TabIndex = 0;
-            this.buttonStudent.Text = "Cadastrar/Editar Aluno";
-            this.buttonStudent.UseVisualStyleBackColor = true;
-            this.buttonStudent.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRegister.Location = new System.Drawing.Point(37, 59);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(112, 100);
+            this.buttonRegister.TabIndex = 0;
+            this.buttonRegister.Text = "Cadastrar Aluno";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonCard
             // 
-            this.buttonCard.Location = new System.Drawing.Point(155, 59);
+            this.buttonCard.Location = new System.Drawing.Point(273, 59);
             this.buttonCard.Name = "buttonCard";
             this.buttonCard.Size = new System.Drawing.Size(112, 100);
             this.buttonCard.TabIndex = 1;
@@ -72,15 +73,25 @@
             this.buttonStudentPassword.Text = "Trocar Senha\r\nAluno";
             this.buttonStudentPassword.UseVisualStyleBackColor = true;
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(155, 59);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(112, 100);
+            this.buttonEdit.TabIndex = 4;
+            this.buttonEdit.Text = "Procurar/Editar Aluno";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            // 
             // ManagerMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 316);
+            this.ClientSize = new System.Drawing.Size(428, 316);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonStudentPassword);
             this.Controls.Add(this.buttonRefill);
             this.Controls.Add(this.buttonCard);
-            this.Controls.Add(this.buttonStudent);
+            this.Controls.Add(this.buttonRegister);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManagerMenuForm";
@@ -92,10 +103,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonStudent;
+        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonCard;
         private System.Windows.Forms.Button buttonRefill;
         private System.Windows.Forms.Button buttonStudentPassword;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
 

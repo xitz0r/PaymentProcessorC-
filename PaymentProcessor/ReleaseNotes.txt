@@ -1,6 +1,12 @@
 ﻿Release Notes
 --------------------------------------------------------
-Data 31/01/2016
+Data: 07/02/2016
+- Trocando chave primária da tabela Student de CPF para id
+- Removendo classe ValiradorCPF
+- Adicionando campos email, emailResponsável e senha à tabela Student
+- Nova classe Encryptor
+--------------------------------------------------------
+Data: 31/01/2016
 - Adicionando ícone
 - Cadastro de aluno não faz mais necessário o cadastro do cartão
 - Cadastro de aluno agora faz edição e busca também

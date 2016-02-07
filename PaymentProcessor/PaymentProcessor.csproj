@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>payment.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
@@ -65,11 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dbppDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbppDataSet1.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Encryptor.cs" />
     <Compile Include="FormCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +90,6 @@
       <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
-    <Compile Include="ValidadorCPF.cs" />
     <EmbeddedResource Include="FormCard.resx">
       <DependentUpon>FormCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,17 +109,6 @@
     <EmbeddedResource Include="RegisterStudentForm.resx">
       <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dbppDataSet1.xsc">
-      <DependentUpon>dbppDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="dbppDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbppDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbppDataSet1.xss">
-      <DependentUpon>dbppDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +136,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>dbpp.mdf</DependentUpon>
     </Content>
+    <Content Include="payment.ico" />
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
