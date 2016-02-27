@@ -81,6 +81,7 @@
             this.buttonEdit.TabIndex = 4;
             this.buttonEdit.Text = "Procurar/Editar Aluno";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // ManagerMenuForm
             // 

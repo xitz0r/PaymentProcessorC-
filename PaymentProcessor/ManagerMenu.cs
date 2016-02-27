@@ -24,5 +24,13 @@ namespace PaymentProcessor
             studentForm.ShowDialog();
             this.Show();
         }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            StudentRUDForm studentRUDForm = new StudentRUDForm();
+            this.Hide();
+            studentRUDForm.ShowDialog();
+            this.Show();
+        }
     }
 }
