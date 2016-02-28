@@ -16,5 +16,24 @@ namespace PaymentProcessor
         {
             InitializeComponent();
         }
+
+        private void studentBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.studentBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dbppDataSet);
+        }
+
+        private void StudentRUDForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dbppDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.dbppDataSet.Student);
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            balanceTextBox.Text = "0";
+        }
     }
 }

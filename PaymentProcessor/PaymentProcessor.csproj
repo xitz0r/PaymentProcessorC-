@@ -68,6 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dbppDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbppDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Encryptor.cs" />
     <Compile Include="FormCard.cs">
       <SubType>Form</SubType>
@@ -90,6 +95,12 @@
       <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="StudentRUDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentRUDForm.Designer.cs">
+      <DependentUpon>StudentRUDForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormCard.resx">
       <DependentUpon>FormCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +120,20 @@
     <EmbeddedResource Include="RegisterStudentForm.resx">
       <DependentUpon>RegisterStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentRUDForm.resx">
+      <DependentUpon>StudentRUDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dbppDataSet3.xsc">
+      <DependentUpon>dbppDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="dbppDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbppDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbppDataSet3.xss">
+      <DependentUpon>dbppDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
