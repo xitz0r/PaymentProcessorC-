@@ -16,7 +16,7 @@ namespace PaymentProcessor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManagerMenuForm());
+            Application.Run(new MainMenuForm());
         }
     }
 }
