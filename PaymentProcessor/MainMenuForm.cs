@@ -24,5 +24,13 @@ namespace PaymentProcessor
             managerMenuForm.ShowDialog();
             this.Show();
         }
+
+        private void buttonShopkeeper_Click(object sender, EventArgs e)
+        {
+            ShopkeeperMenu shopkeeperMenu = new ShopkeeperMenu();
+            this.Hide();
+            shopkeeperMenu.ShowDialog();
+            this.Show();
+        }
     }
 }

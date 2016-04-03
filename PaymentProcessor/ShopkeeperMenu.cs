@@ -16,5 +16,13 @@ namespace PaymentProcessor
         {
             InitializeComponent();
         }
+
+        private void buttonSale_Click(object sender, EventArgs e)
+        {
+            SaleForm saleForm = new SaleForm();
+            this.Hide();
+            saleForm.ShowDialog();
+            this.Show();
+        }
     }
 }

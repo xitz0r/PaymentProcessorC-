@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.buttonManager = new System.Windows.Forms.Button();
             this.buttonShopkeeper = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             this.buttonShopkeeper.TabIndex = 2;
             this.buttonShopkeeper.Text = "Lojista";
             this.buttonShopkeeper.UseVisualStyleBackColor = true;
+            this.buttonShopkeeper.Click += new System.EventHandler(this.buttonShopkeeper_Click);
             // 
             // MainMenuForm
             // 
@@ -58,9 +60,10 @@
             this.ClientSize = new System.Drawing.Size(352, 179);
             this.Controls.Add(this.buttonShopkeeper);
             this.Controls.Add(this.buttonManager);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainMenuForm";
+            this.Text = "Payment Processor";
             this.ResumeLayout(false);
 
         }
