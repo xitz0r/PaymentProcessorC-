@@ -28,6 +28,8 @@ namespace PaymentProcessor
         {
             // TODO: This line of code loads data into the 'dbppDataSet.Student' table. You can move, or remove it, as needed.
             this.studentTableAdapter.Fill(this.dbppDataSet.Student);
+            // TODO: This line of code loads data into the 'dbppDataSet.Card' table. You can move, or remove it, as needed.
+            this.cardTableAdapter.Fill(this.dbppDataSet.Card);
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -50,12 +52,21 @@ namespace PaymentProcessor
                     this.balanceTextBox.Text = this.balanceTextBox.Text.Trim().Remove(this.balanceTextBox.Text.Trim().Length - 2);
 
                 this.passwordTextBox.Text = "".PadLeft(this.passwordTextBox.Text.Trim().Length, '*');
+
+                //checking if user has card
+                //if (studentTableAdapter.GetData())
             }
         }
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormCard formCard = new FormCard();
+            formCard.ShowDialog();
         }
     }
 }

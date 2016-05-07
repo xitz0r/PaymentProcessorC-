@@ -29,7 +29,7 @@ namespace PaymentProcessor
 
         private void buttonCartao_Click(object sender, EventArgs e)
         {
-            FormCard formCard = new FormCard(this);
+            FormCard formCard = new FormCard();
             this.Hide();
             formCard.ShowDialog();
             this.Show();

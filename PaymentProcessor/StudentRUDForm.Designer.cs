@@ -63,6 +63,9 @@
             this.emailParentTextBox = new System.Windows.Forms.TextBox();
             this.balanceTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cardTableAdapter = new PaymentProcessor.dbppDataSetTableAdapters.CardTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
@@ -75,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).BeginInit();
             this.studentBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // idLabel
@@ -198,7 +202,7 @@
             this.studentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentBindingNavigator.Name = "studentBindingNavigator";
             this.studentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentBindingNavigator.Size = new System.Drawing.Size(367, 25);
+            this.studentBindingNavigator.Size = new System.Drawing.Size(749, 25);
             this.studentBindingNavigator.TabIndex = 0;
             this.studentBindingNavigator.Text = "bindingNavigator1";
             this.studentBindingNavigator.RefreshItems += new System.EventHandler(this.studentBindingNavigator_RefreshItems);
@@ -367,11 +371,31 @@
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 16;
             // 
+            // cardBindingSource
+            // 
+            this.cardBindingSource.DataMember = "Card";
+            this.cardBindingSource.DataSource = this.dbppDataSet;
+            // 
+            // cardTableAdapter
+            // 
+            this.cardTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(168, 286);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StudentRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 268);
+            this.ClientSize = new System.Drawing.Size(749, 679);
+            this.Controls.Add(this.button1);
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(nameLabel);
@@ -397,6 +421,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).EndInit();
             this.studentBindingNavigator.ResumeLayout(false);
             this.studentBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,5 +454,8 @@
         private System.Windows.Forms.TextBox emailParentTextBox;
         private System.Windows.Forms.TextBox balanceTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.BindingSource cardBindingSource;
+        private dbppDataSetTableAdapters.CardTableAdapter cardTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

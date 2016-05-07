@@ -15,12 +15,10 @@ namespace PaymentProcessor
     {
         private bool inputToLabel = true, firstTime = true;
         private Timer timer = new Timer();
-        private RegisterStudentForm formParent;
 
-        public FormCard(RegisterStudentForm form)
+        public FormCard()
         {
             InitializeComponent();
-            formParent = form;
         }
 
         private void FormCard_Load(object sender, EventArgs e)
