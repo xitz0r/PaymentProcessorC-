@@ -15,6 +15,18 @@ namespace PaymentProcessor.Entities
         public virtual IList<Card> Cards { get; set; }
         public virtual DateTime Birthday { get; set; }
         public virtual DateTime DateTimeCreated { get; set; }
+
+
+        public Student() {}
+
+        public Student(string name, string lastname, string cpf, DateTime birthday)
+        {
+            this.Name = name;
+            this.LastName = LastName;
+            this.CPF = cpf;
+            this.Birthday = birthday;
+            this.DateTimeCreated = DateTime.Now;
+        }
     }
 
     public class InvalidCPFException : Exception
