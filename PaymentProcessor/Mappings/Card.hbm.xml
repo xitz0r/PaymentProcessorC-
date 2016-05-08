@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+  assembly="PaymentProcessor"
+  namespace="PaymentProcessor.Entities">
+
+  <class name="Card">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+
+    <property name="PAN"/>
+    <property name="Track1"/>
+    <property name="Track2"/>
+    <property name="ExpirationDate"/>
+    <property name="Blocked"/>
+    <many-to-one name="Student" column="StudentId" fetch="join"/>
+    
+  </class>
+
+
+</hibernate-mapping>

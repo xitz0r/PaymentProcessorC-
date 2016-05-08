@@ -2,7 +2,7 @@
 --------------------------------------------------------
 Data: 07/02/2016
 - Trocando chave primária da tabela Student de CPF para id
-- Removendo classe ValiradorCPF
+- Removendo classe ValidadorCPF
 - Adicionando campos email, emailResponsável e senha à tabela Student
 - Nova classe Encryptor
 --------------------------------------------------------
