@@ -10,26 +10,26 @@ using System.Windows.Forms;
 
 namespace PaymentProcessor
 {
-    public partial class MainMenuForm : Form
+    public partial class ManagerMenuForm : Form
     {
-        public MainMenuForm()
+        public ManagerMenuForm()
         {
             InitializeComponent();
         }
 
-        private void buttonManager_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            ManagerMenuForm managerMenuForm = new ManagerMenuForm();
+            RegisterStudentForm studentForm = new RegisterStudentForm();
             this.Hide();
-            managerMenuForm.ShowDialog();
+            studentForm.ShowDialog();
             this.Show();
         }
 
-        private void buttonShopkeeper_Click(object sender, EventArgs e)
+        private void buttonEdit_Click(object sender, EventArgs e)
         {
-            ShopkeeperMenu shopkeeperMenu = new ShopkeeperMenu();
+            StudentRUDForm studentRUDForm = new StudentRUDForm();
             this.Hide();
-            shopkeeperMenu.ShowDialog();
+            studentRUDForm.ShowDialog();
             this.Show();
         }
     }

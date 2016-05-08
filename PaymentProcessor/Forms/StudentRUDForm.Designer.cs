@@ -38,10 +38,7 @@
             System.Windows.Forms.Label balanceLabel;
             System.Windows.Forms.Label passwordLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRUDForm));
-            this.dbppDataSet = new PaymentProcessor.dbppDataSet();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentTableAdapter = new PaymentProcessor.dbppDataSetTableAdapters.StudentTableAdapter();
-            this.tableAdapterManager = new PaymentProcessor.dbppDataSetTableAdapters.TableAdapterManager();
             this.studentBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -64,7 +61,6 @@
             this.balanceTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.cardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cardTableAdapter = new PaymentProcessor.dbppDataSetTableAdapters.CardTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -74,7 +70,6 @@
             emailParentLabel = new System.Windows.Forms.Label();
             balanceLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dbppDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).BeginInit();
             this.studentBindingNavigator.SuspendLayout();
@@ -152,29 +147,6 @@
             passwordLabel.Size = new System.Drawing.Size(38, 13);
             passwordLabel.TabIndex = 15;
             passwordLabel.Text = "Senha";
-            // 
-            // dbppDataSet
-            // 
-            this.dbppDataSet.DataSetName = "dbppDataSet";
-            this.dbppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataMember = "Student";
-            this.studentBindingSource.DataSource = this.dbppDataSet;
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CardTableAdapter = null;
-            this.tableAdapterManager.SaleTableAdapter = null;
-            this.tableAdapterManager.StudentTableAdapter = this.studentTableAdapter;
-            this.tableAdapterManager.TerminalTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PaymentProcessor.dbppDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // studentBindingNavigator
             // 
@@ -371,15 +343,6 @@
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 16;
             // 
-            // cardBindingSource
-            // 
-            this.cardBindingSource.DataMember = "Card";
-            this.cardBindingSource.DataSource = this.dbppDataSet;
-            // 
-            // cardTableAdapter
-            // 
-            this.cardTableAdapter.ClearBeforeFill = true;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(168, 286);
@@ -416,7 +379,6 @@
             this.Name = "StudentRUDForm";
             this.Text = "StudentRUDForm";
             this.Load += new System.EventHandler(this.StudentRUDForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dbppDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).EndInit();
             this.studentBindingNavigator.ResumeLayout(false);
@@ -429,10 +391,7 @@
 
         #endregion
 
-        private dbppDataSet dbppDataSet;
         private System.Windows.Forms.BindingSource studentBindingSource;
-        private dbppDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
-        private dbppDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator studentBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -455,7 +414,6 @@
         private System.Windows.Forms.TextBox balanceTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.BindingSource cardBindingSource;
-        private dbppDataSetTableAdapters.CardTableAdapter cardTableAdapter;
         private System.Windows.Forms.Button button1;
     }
 }
