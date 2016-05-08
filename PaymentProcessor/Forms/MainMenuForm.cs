@@ -29,6 +29,7 @@ namespace PaymentProcessor
 
         private void buttonShopkeeper_Click(object sender, EventArgs e)
         {
+            NHibernateHelper.GenerateSchema();
             ShopkeeperMenu shopkeeperMenu = new ShopkeeperMenu();
             this.Hide();
             shopkeeperMenu.ShowDialog();
