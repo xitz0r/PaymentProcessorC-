@@ -16,52 +16,5 @@ namespace PaymentProcessor
         {
             InitializeComponent();
         }
-
-        private void studentBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.studentBindingSource.EndEdit();
-        }
-
-        private void StudentRUDForm_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-            balanceTextBox.Text = "0";
-        }
-
-        private void studentBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-            if (this.balanceTextBox.Text != "")
-            {
-                this.nameTextBox.Text = this.nameTextBox.Text.Trim();
-                this.lastNameTextBox.Text = this.lastNameTextBox.Text.Trim();
-                this.emailTextBox.Text = this.emailTextBox.Text.Trim();
-                this.emailParentTextBox.Text = this.emailParentTextBox.Text.Trim();
-
-                this.balanceTextBox.Text = this.balanceTextBox.Text.Trim();
-                int iLen = this.balanceTextBox.Text.Length;
-                if (iLen > 5 && this.balanceTextBox.Text[iLen - 5] == ',')
-                    this.balanceTextBox.Text = this.balanceTextBox.Text.Trim().Remove(this.balanceTextBox.Text.Trim().Length - 2);
-
-                this.passwordTextBox.Text = "".PadLeft(this.passwordTextBox.Text.Trim().Length, '*');
-
-                //checking if user has card
-                //if (studentTableAdapter.GetData())
-            }
-        }
-
-        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FormCard formCard = new FormCard();
-            formCard.ShowDialog();
-        }
     }
 }
