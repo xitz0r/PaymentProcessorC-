@@ -27,34 +27,42 @@ namespace PaymentProcessor
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            string errorMsg = "", sId;
+            string errorMsg = "";
 
-            if (textBoxPassword.Text == "")
-                errorMsg = "Senha vazia";
-            else if (textBoxPasswordConfirm.Text == "")
-                errorMsg = "Confirmação de senha vazia";
-            else if (textBoxPassword.Text != textBoxPasswordConfirm.Text)
+            if (textBoxPassword.Text != textBoxPasswordConfirm.Text)
                 errorMsg = "Senhas não conferem";
 
-            Student student = new Student(this.textBoxNome.Text,
-                this.textBoxSobrenome.Text,
-                this.dateTimePickerNascimento.Value,
-                new Email(this.textBoxEmailStudent.Text),
-                new Email(this.textBoxEmailParent.Text),
-                this.textBoxPassword.Text);
-
-            if (errorMsg != "") //at least one field with error
+            if (!String.IsNullOrEmpty(errorMsg))
             {
-                SystemSounds.Beep.Play();
-                MessageBox.Show(errorMsg, "Erro");
+                ShowError(errorMsg);
                 return;
             }
 
-            StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
-            studentDAO.Add(student);
-            bSaved = true;
-            MessageBox.Show("Cadastro efetuado com sucesso!\n\nMatrícula: " + student.Id, "Cadastro");
-            this.Close();
+            try
+            {
+                Student student = new Student(this.textBoxNome.Text,
+                                    this.textBoxSobrenome.Text,
+                                    this.dateTimePickerNascimento.Value,
+                                    new Email(this.textBoxEmailStudent.Text),
+                                    new Email(this.textBoxEmailParent.Text),
+                                    this.textBoxPassword.Text);
+
+                StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
+                studentDAO.Add(student);
+                bSaved = true;
+                MessageBox.Show("Cadastro efetuado com sucesso!\n\nMatrícula: " + student.Id, "Cadastro");
+                this.Close();
+            }
+            catch (Exception ex)    //at least one field with error
+            {
+                ShowError(ex.Message);
+            }
+        }
+
+        private void ShowError(string errorMsg)
+        {
+            SystemSounds.Beep.Play();
+            MessageBox.Show(errorMsg, "Erro");
         }
 
         private void RegisterStudentForm_FormClosing(object sender, FormClosingEventArgs e)

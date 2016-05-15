@@ -32,18 +32,23 @@ namespace PaymentProcessor.Entities
             this.EmailParent = emailParent;
             this.Password = password;
             this.Balance = 0.0;
+
+            CheckInstance(); //checks if this instance is a valid one
         }
 
         private void CheckInstance()
         {
-            string errorMsg = "", sId;
+            string errorMsg = "";
 
-            if (this.Name == "")
+            if (String.IsNullOrEmpty(this.Name))
                 errorMsg = "Nome vazio";
-            else if (this.LastName == "")
+            else if (String.IsNullOrEmpty(this.LastName))
                 errorMsg = "Sobrenome vazio";
-            //else if (this.Password == "")
-            //    errorMsg = "Senha vazia";
+            else if (String.IsNullOrEmpty(this.Password))
+                errorMsg = "Senha vazia";
+
+            if (!String.IsNullOrEmpty(errorMsg))
+                throw (new Exception(errorMsg));
         }
     }
 
