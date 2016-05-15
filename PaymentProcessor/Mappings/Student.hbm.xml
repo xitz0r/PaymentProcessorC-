@@ -8,15 +8,25 @@
       <generator class="identity"/>
     </id>
 
-    <property name="Name"/>
-    <property name="LastName"/>
-    <property name="CPF"/>
-    <property name="Birthday"/>
-    <property name="DateTimeCreated"/>
+    <property name="Name" not-null="true"/>
+    <property name="LastName" not-null="true"/>
+    <property name="Birthday" not-null="true"/>
+    <property name="DateTimeCreated" not-null="true"/>
     
     <bag name="Cards" fetch="join" batch-size="10">
       <key column="StudentId"/>
       <one-to-many class="Card"/>
+    </bag>
+    
+    <one-to-one name="EmailStudent" class="Email" cascade="all"/>
+    <one-to-one name="EmailParent" class="Email" cascade="all"/>
+
+    <property name="Balance" not-null="true"/>
+    <property name="Password" not-null="true"/>
+
+    <bag name="Sales">
+      <key column="SaleId"/>
+      <one-to-many class="Sale"/>
     </bag>
 
   </class>
