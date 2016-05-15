@@ -4,7 +4,11 @@
   namespace="PaymentProcessor.Entities">
 
   <class name="Email">
-    <id name="EmailAddress"/>
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+
+    <property name="EmailAddress"/>
 
     <one-to-one name="Student" class="Student"/>
 

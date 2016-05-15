@@ -10,6 +10,7 @@ namespace PaymentProcessor.Entities
 {
     public class Email
     {
+        public virtual int Id { get; set; }
         public virtual string EmailAddress { get; set; }
         public virtual Student Student { get; set; }
 
@@ -18,6 +19,14 @@ namespace PaymentProcessor.Entities
         public Email(string email)
         {
             this.EmailAddress = email;
+
+            CheckInstance();
+        }
+
+        private void CheckInstance()
+        {
+            if (!Email.IsValidEmail(this.EmailAddress))
+                throw (new Exception("Email vazio ou inválido"));
         }
 
         public static bool IsValidEmail(string email)
