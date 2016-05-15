@@ -13,6 +13,7 @@ namespace PaymentProcessor.Entities
         public virtual string Track1 { get; set; }
         public virtual string Track2 { get; set; }
         public virtual DateTime ExpirationDate { get; set; }
+        public virtual int CVV2 { get; set; }
         public virtual Boolean Blocked { get; set; }
         public virtual Student Student { get; set; }
     }

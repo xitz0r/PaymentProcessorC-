@@ -8,11 +8,12 @@
       <generator class="identity"/>
     </id>
 
-    <property name="PAN"/>
+    <property name="PAN" unique-key="PAN" not-null="true"/>
     <property name="Track1"/>
     <property name="Track2"/>
-    <property name="ExpirationDate"/>
-    <property name="Blocked"/>
+    <property name="ExpirationDate" not-null="true"/>
+    <property name="CVV2" not-null="true"/>
+    <property name="Blocked" not-null="true"/>
     <many-to-one name="Student" column="StudentId" fetch="join"/>
     
   </class>
