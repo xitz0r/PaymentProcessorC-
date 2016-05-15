@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+  assembly="PaymentProcessor"
+  namespace="PaymentProcessor.Entities">
+
+  <class name="Sale">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+
+    <property name="Value" not-null="true"/>
+    <property name="DateTimeSale" not-null="true"/>
+    <property name="WasRefunded" not-null="true"/>
+    <property name="IsReload" not-null="true"/>
+
+    <many-to-one name="Student" class="Student" not-null="true"/>
+    <many-to-one name="Terminal" class="Terminal" not-null="true"/>
+
+  </class>
+
+
+</hibernate-mapping>
