@@ -6,10 +6,20 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PaymentProcessor.Domain_Classes
+namespace PaymentProcessor.Entities
 {
     public class Email
     {
+        public virtual string EmailAddress { get; set; }
+        public virtual Student Student { get; set; }
+
+        public Email() {}
+
+        public Email(string email)
+        {
+            this.EmailAddress = email;
+        }
+
         public static bool IsValidEmail(string email)
         {
             if (String.IsNullOrEmpty(email))
