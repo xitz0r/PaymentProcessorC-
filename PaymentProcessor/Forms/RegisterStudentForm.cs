@@ -69,29 +69,6 @@ namespace PaymentProcessor
         {
             if (!bSaved && MessageBox.Show("Deseja cancelar?", "Cadastrar aluno", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 e.Cancel = true;
-            //else
-                //sqlConnection.Close();
-        }
-
-        private string Insert_Student()
-        {
-            string sDate = this.dateTimePickerNascimento.Value.ToString().Substring(0, 10);
-            /*
-            SqlCommand sqlCmd;
-
-            sqlCmd = sqlConnection.CreateCommand();
-            sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "INSERT INTO Student (name, lastName, birthday, email, emailParent, password) VALUES ('"
-                + this.textBoxNome.Text + "', '"
-                + this.textBoxSobrenome.Text + "', '"
-                + sDate.Substring(6, 4) + sDate.Substring(3, 2) + sDate.Substring(0, 2) + "', '"
-                + textBoxEmailStudent.Text + "', '"
-                + textBoxEmailParent.Text + "', '"
-                + Encryptor.MD5Hash(textBoxPassword.Text) + "'); SELECT SCOPE_IDENTITY();";
-
-            return sqlCmd.ExecuteScalar().ToString();
-            */
-            return "";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
