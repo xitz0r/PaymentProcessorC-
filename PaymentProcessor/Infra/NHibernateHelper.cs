@@ -19,6 +19,9 @@ namespace PaymentProcessor.Infra
         {
             Configuration cfg = new Configuration();
             cfg.Configure();
+#if DEBUG
+            cfg.SetProperty(NHibernate.Cfg.Environment.ConnectionString, "Server=localhost;Database=paymentprocessortest;Uid=paymentprocessor;Pwd=paymentprocessor;");
+#endif
             return cfg;
         }
 
