@@ -44,6 +44,7 @@
             this.balanceTextBox = new System.Windows.Forms.TextBox();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
@@ -118,7 +119,6 @@
             // 
             // idTextBox
             // 
-            this.idTextBox.Enabled = false;
             this.idTextBox.Location = new System.Drawing.Point(113, 38);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(200, 20);
@@ -194,11 +194,22 @@
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(319, 36);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(55, 23);
+            this.buttonSearch.TabIndex = 19;
+            this.buttonSearch.Text = "Procurar";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // StudentRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 679);
+            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(idLabel);
@@ -233,5 +244,6 @@
         private System.Windows.Forms.TextBox balanceTextBox;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonPrevious;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }
