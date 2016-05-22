@@ -35,7 +35,6 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label emailParentLabel;
             System.Windows.Forms.Label balanceLabel;
-            System.Windows.Forms.Label passwordLabel;
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -43,7 +42,6 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.emailParentTextBox = new System.Windows.Forms.TextBox();
             this.balanceTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
@@ -53,7 +51,6 @@
             emailLabel = new System.Windows.Forms.Label();
             emailParentLabel = new System.Windows.Forms.Label();
             balanceLabel = new System.Windows.Forms.Label();
-            passwordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // idLabel
@@ -119,15 +116,6 @@
             balanceLabel.TabIndex = 13;
             balanceLabel.Text = "Saldo:";
             // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(12, 223);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(38, 13);
-            passwordLabel.TabIndex = 15;
-            passwordLabel.Text = "Senha";
-            // 
             // idTextBox
             // 
             this.idTextBox.Enabled = false;
@@ -181,16 +169,9 @@
             this.balanceTextBox.Size = new System.Drawing.Size(200, 20);
             this.balanceTextBox.TabIndex = 14;
             // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(114, 220);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
-            this.passwordTextBox.TabIndex = 16;
-            // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(238, 266);
+            this.buttonNext.Location = new System.Drawing.Point(238, 241);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 17;
@@ -200,7 +181,7 @@
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Location = new System.Drawing.Point(113, 266);
+            this.buttonPrevious.Location = new System.Drawing.Point(113, 241);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(75, 23);
             this.buttonPrevious.TabIndex = 18;
@@ -229,8 +210,6 @@
             this.Controls.Add(this.emailParentTextBox);
             this.Controls.Add(balanceLabel);
             this.Controls.Add(this.balanceTextBox);
-            this.Controls.Add(passwordLabel);
-            this.Controls.Add(this.passwordTextBox);
             this.Name = "StudentRUDForm";
             this.Text = "StudentRUDForm";
             this.Load += new System.EventHandler(this.StudentRUDForm_Load);
@@ -247,7 +226,6 @@
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox emailParentTextBox;
         private System.Windows.Forms.TextBox balanceTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonPrevious;
     }

@@ -48,7 +48,6 @@ namespace PaymentProcessor
                 this.emailTextBox.Text = student.EmailStudent.EmailAddress;
                 this.emailParentTextBox.Text = student.EmailParent.EmailAddress;
                 this.balanceTextBox.Text = student.Balance.ToString();
-                this.passwordTextBox.Text = student.Password;
             }
         }
 
