@@ -44,6 +44,8 @@
             this.emailParentTextBox = new System.Windows.Forms.TextBox();
             this.balanceTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrevious = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
@@ -181,16 +183,38 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(113, 220);
+            this.passwordTextBox.Location = new System.Drawing.Point(114, 220);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 16;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(238, 266);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.TabIndex = 17;
+            this.buttonNext.Text = "Próximo";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_click);
+            // 
+            // buttonPrevious
+            // 
+            this.buttonPrevious.Location = new System.Drawing.Point(113, 266);
+            this.buttonPrevious.Name = "buttonPrevious";
+            this.buttonPrevious.Size = new System.Drawing.Size(75, 23);
+            this.buttonPrevious.TabIndex = 18;
+            this.buttonPrevious.Text = "Anterior";
+            this.buttonPrevious.UseVisualStyleBackColor = true;
+            this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
             // StudentRUDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 679);
+            this.Controls.Add(this.buttonPrevious);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(nameLabel);
@@ -209,6 +233,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Name = "StudentRUDForm";
             this.Text = "StudentRUDForm";
+            this.Load += new System.EventHandler(this.StudentRUDForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +248,7 @@
         private System.Windows.Forms.TextBox emailParentTextBox;
         private System.Windows.Forms.TextBox balanceTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button buttonPrevious;
     }
 }
