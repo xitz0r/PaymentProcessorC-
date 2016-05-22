@@ -126,6 +126,7 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Enabled = false;
             this.nameTextBox.Location = new System.Drawing.Point(113, 64);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 20);
@@ -133,6 +134,7 @@
             // 
             // lastNameTextBox
             // 
+            this.lastNameTextBox.Enabled = false;
             this.lastNameTextBox.Location = new System.Drawing.Point(113, 90);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
@@ -141,6 +143,7 @@
             // birthdayDateTimePicker
             // 
             this.birthdayDateTimePicker.CustomFormat = "";
+            this.birthdayDateTimePicker.Enabled = false;
             this.birthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(113, 116);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
@@ -149,6 +152,7 @@
             // 
             // emailTextBox
             // 
+            this.emailTextBox.Enabled = false;
             this.emailTextBox.Location = new System.Drawing.Point(113, 142);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(200, 20);
@@ -156,6 +160,7 @@
             // 
             // emailParentTextBox
             // 
+            this.emailParentTextBox.Enabled = false;
             this.emailParentTextBox.Location = new System.Drawing.Point(113, 168);
             this.emailParentTextBox.Name = "emailParentTextBox";
             this.emailParentTextBox.Size = new System.Drawing.Size(200, 20);
