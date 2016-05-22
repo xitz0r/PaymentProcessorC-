@@ -35,6 +35,7 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label emailParentLabel;
             System.Windows.Forms.Label balanceLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRUDForm));
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -208,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 679);
+            this.ClientSize = new System.Drawing.Size(394, 293);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonNext);
@@ -226,8 +227,9 @@
             this.Controls.Add(this.emailParentTextBox);
             this.Controls.Add(balanceLabel);
             this.Controls.Add(this.balanceTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentRUDForm";
-            this.Text = "StudentRUDForm";
+            this.Text = "Formulário Estudante";
             this.Load += new System.EventHandler(this.StudentRUDForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
