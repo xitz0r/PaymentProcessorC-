@@ -62,5 +62,16 @@ namespace PaymentProcessor
             Student student = this.studentDAO.GetPreviousBefore(Int32.Parse(this.idTextBox.Text));
             this.Fill(student);
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if (Int32.TryParse(this.idTextBox.Text, out id))
+            {
+                Student student = this.studentDAO.Get(id);
+                this.Fill(student);
+            }
+        }
     }
 }
