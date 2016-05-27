@@ -13,13 +13,9 @@ namespace PaymentProcessor.Tests
     [TestFixture]
     public class CardTest
     {
-        private ISession session;
-
         [OneTimeSetUp]
         public void PreparingTests()
         {
-            NHibernateHelper.GenerateSchema();
-            session = NHibernateHelper.OpenSession();
         }
 
         [Test]
@@ -82,7 +78,6 @@ namespace PaymentProcessor.Tests
         [OneTimeTearDown]
         public void FinalizeTests()
         {
-            session.Close();
         }
     }
 }
