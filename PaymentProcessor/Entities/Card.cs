@@ -110,6 +110,12 @@ namespace PaymentProcessor.Entities
                     throw new Exception("Expiration date in track 1 doesn't match with expiration date in track 2");
             }
 
+            string pan = (String.IsNullOrEmpty(this.PANTrack1) ? this.PANTrack2 : this.PANTrack1);
+            foreach (char c in pan)
+                if (!Char.IsDigit(c))
+                    throw new Exception("Invalid PAN, no letters are allowed");
+
+
             int year, month;
 
             //card validated at this point

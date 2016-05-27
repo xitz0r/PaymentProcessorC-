@@ -48,6 +48,14 @@ namespace PaymentProcessor.Tests
         }
 
         [Test]
+        public void CantAcceptPANWithLetters()
+        {
+            string trackData = "%B4ç444444444444444=210712110000220";
+
+            Assert.Throws<Exception>(() => new Card(trackData, 0));
+        }
+
+        [Test]
         public void MustAcceptValidDate()   //this was due a bad implementation of CheckAndFillTracks, as it was putting the card's expiration date day as 31, and not all months have 31 days
         {
             string trackData = "%b44444444444444444^you/a gift for^23091211000000220000000?\r;44444444444444444=230912110000220?\r;04144?";
