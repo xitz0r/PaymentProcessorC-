@@ -30,7 +30,7 @@ namespace PaymentProcessor.Entities
 
         private void FillTrackData(string trackdata)
         {
-            string[] trackList = trackdata.Split('\n');
+            string[] trackList = trackdata.Split('\r');
             foreach (var track in trackList)
             {
                 if (track.Split('^').Length == 3)       //track 1
