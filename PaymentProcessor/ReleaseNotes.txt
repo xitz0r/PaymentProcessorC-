@@ -1,5 +1,7 @@
 ﻿Release Notes
 --------------------------------------------------------
+- Adicionando NUnit3TestAdapter
+--------------------------------------------------------
 Data: 07/02/2016
 - Trocando chave primária da tabela Student de CPF para id
 - Removendo classe ValidadorCPF
