@@ -23,6 +23,7 @@ namespace PaymentProcessor.Tests
             session = NHibernateHelper.OpenSession();
         }
 
+        /*
         [Test]
         public void CantInsertSameCPFAgain()
         {
@@ -35,6 +36,7 @@ namespace PaymentProcessor.Tests
             Assert.Throws<NHibernate.Exceptions.GenericADOException>(() => studentDAO.Add(student2));
 
         }
+        */
 
         [OneTimeTearDown]
         public void FinalizeTests()
