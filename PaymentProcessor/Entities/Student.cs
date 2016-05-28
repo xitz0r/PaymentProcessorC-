@@ -30,7 +30,7 @@ namespace PaymentProcessor.Entities
             this.DateTimeCreated = DateTime.Now;
             this.EmailStudent = email;
             this.EmailParent = emailParent;
-            this.Password = password;
+            this.Password = Encryptor.MD5Hash(password);
             this.Balance = 0.0;
 
             CheckInstance(); //checks if this instance is a valid one

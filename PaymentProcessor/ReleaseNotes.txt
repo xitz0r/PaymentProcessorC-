@@ -5,6 +5,7 @@
 - Criando primeira versão da classe CardTest
 - Trocando quebra de leituras da trilha de \n para \r para ficar de acordo com a leitora de cartões
 - Garantindo que o PAN obtido contém apenas caracteres numéricos
+- Persistindo a senha com MD5
 --------------------------------------------------------
 Data: 07/02/2016
 - Trocando chave primária da tabela Student de CPF para id
