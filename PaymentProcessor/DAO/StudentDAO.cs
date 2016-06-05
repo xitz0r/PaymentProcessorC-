@@ -40,10 +40,7 @@ namespace PaymentProcessor.DAO
 
         public Student Get(int id)
         {
-            ITransaction transaction = session.BeginTransaction();
-            Student student = session.Get<Student>(id);
-            transaction.Commit();
-            return student;
+            return session.Get<Student>(id);
         }
 
         public Student GetNextAfter(int id)
