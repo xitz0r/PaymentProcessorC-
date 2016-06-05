@@ -32,7 +32,6 @@
             this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonCard = new System.Windows.Forms.Button();
             this.buttonRefill = new System.Windows.Forms.Button();
-            this.buttonStudentPassword = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -64,15 +63,6 @@
             this.buttonRefill.Text = "Recarga";
             this.buttonRefill.UseVisualStyleBackColor = true;
             // 
-            // buttonStudentPassword
-            // 
-            this.buttonStudentPassword.Location = new System.Drawing.Point(155, 165);
-            this.buttonStudentPassword.Name = "buttonStudentPassword";
-            this.buttonStudentPassword.Size = new System.Drawing.Size(112, 100);
-            this.buttonStudentPassword.TabIndex = 3;
-            this.buttonStudentPassword.Text = "Trocar Senha\r\nAluno";
-            this.buttonStudentPassword.UseVisualStyleBackColor = true;
-            // 
             // buttonEdit
             // 
             this.buttonEdit.Location = new System.Drawing.Point(155, 59);
@@ -89,7 +79,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 316);
             this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.buttonStudentPassword);
             this.Controls.Add(this.buttonRefill);
             this.Controls.Add(this.buttonCard);
             this.Controls.Add(this.buttonRegister);
@@ -107,7 +96,6 @@
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonCard;
         private System.Windows.Forms.Button buttonRefill;
-        private System.Windows.Forms.Button buttonStudentPassword;
         private System.Windows.Forms.Button buttonEdit;
     }
 }
