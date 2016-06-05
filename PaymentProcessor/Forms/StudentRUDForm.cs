@@ -30,11 +30,11 @@ namespace PaymentProcessor
             this.session = NHibernateHelper.OpenSession();
             this.studentDAO = new StudentDAO(this.session);
 
-            Student student = this.studentDAO.GetFirst();
+            this.student = this.studentDAO.GetFirst();
             this.Fill(student);
 
             //counts number of students
-            this.numberOfStudents = new StudentDAO(NHibernateHelper.OpenSession()).GetTotal();
+            this.numberOfStudents = this.studentDAO.GetTotal();
         }
 
         private void Fill(Student student)
