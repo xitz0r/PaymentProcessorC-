@@ -77,5 +77,12 @@ namespace PaymentProcessor.DAO
 
             return student;
         }
+
+        public void Update(Student student)
+        {
+            ITransaction transacao = session.BeginTransaction();
+            session.Update(student);
+            transacao.Commit();
+        }
     }
 }
