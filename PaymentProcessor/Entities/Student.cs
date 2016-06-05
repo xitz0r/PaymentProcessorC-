@@ -22,7 +22,7 @@ namespace PaymentProcessor.Entities
 
         public Student() {}
 
-        public Student(string name, string lastName, DateTime birthday, Email email, Email emailParent, string password)
+        public Student(string name, string lastName, DateTime birthday, Email email, Email emailParent, int password)
         {
             this.Name = name;
             this.LastName = lastName;
@@ -30,7 +30,7 @@ namespace PaymentProcessor.Entities
             this.DateTimeCreated = DateTime.Now;
             this.EmailStudent = email;
             this.EmailParent = emailParent;
-            this.Password = Encryptor.MD5Hash(password);
+            this.Password = Encryptor.MD5Hash(password.ToString());
             this.Balance = 0.0;
 
             CheckInstance(); //checks if this instance is a valid one
@@ -49,6 +49,11 @@ namespace PaymentProcessor.Entities
 
             if (!String.IsNullOrEmpty(errorMsg))
                 throw (new Exception(errorMsg));
+        }
+
+        public virtual void ChangePassword(int password)
+        {
+            this.Password = Encryptor.MD5Hash(password.ToString());
         }
     }
 

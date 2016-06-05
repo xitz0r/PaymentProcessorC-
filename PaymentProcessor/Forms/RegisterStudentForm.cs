@@ -45,7 +45,7 @@ namespace PaymentProcessor
                                     this.dateTimePickerNascimento.Value,
                                     new Email(this.textBoxEmailStudent.Text),
                                     new Email(this.textBoxEmailParent.Text),
-                                    this.textBoxPassword.Text);
+                                    Int32.Parse(this.textBoxPassword.Text));
 
                 StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
                 studentDAO.Add(student);
