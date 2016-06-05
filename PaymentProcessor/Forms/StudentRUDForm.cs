@@ -70,7 +70,10 @@ namespace PaymentProcessor
             if (Int32.TryParse(this.idTextBox.Text, out id))
             {
                 Student student = this.studentDAO.Get(id);
-                this.Fill(student);
+                if (student == null)
+                    MessageBox.Show("Estudante não encontrado", "Erro");
+                else
+                    this.Fill(student);
             }
         }
     }
