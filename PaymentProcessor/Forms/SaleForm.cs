@@ -17,6 +17,14 @@ namespace PaymentProcessor
             InitializeComponent();
         }
 
+        private void buttonGeneralClick(char key)
+        {
+            string text = textBoxValue.Text;
+
+            if (!text.Contains(',') || (text.IndexOf(',') + 3 > text.Length))
+                textBoxValue.Text += key;
+        }
+
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxValue.Text = "";
@@ -24,52 +32,52 @@ namespace PaymentProcessor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "1";
+            buttonGeneralClick('1');
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "2";
+            buttonGeneralClick('2');
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "3";
+            buttonGeneralClick('3');
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "4";
+            buttonGeneralClick('4');
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "5";
+            buttonGeneralClick('5');
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "6";
+            buttonGeneralClick('6');
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "7";
+            buttonGeneralClick('7');
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "8";
+            buttonGeneralClick('8');
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "9";
+            buttonGeneralClick('9');
         }
 
         private void button0_Click(object sender, EventArgs e)
         {
-            textBoxValue.Text += "0";
+            buttonGeneralClick('0');
         }
 
         private void buttonComma_Click(object sender, EventArgs e)
