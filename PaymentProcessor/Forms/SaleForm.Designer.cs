@@ -42,6 +42,7 @@
             this.buttonComma = new System.Windows.Forms.Button();
             this.textBoxValue = new System.Windows.Forms.TextBox();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonCard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -174,11 +175,22 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
+            // buttonCard
+            // 
+            this.buttonCard.Location = new System.Drawing.Point(38, 344);
+            this.buttonCard.Name = "buttonCard";
+            this.buttonCard.Size = new System.Drawing.Size(162, 50);
+            this.buttonCard.TabIndex = 14;
+            this.buttonCard.Text = "Passar Cartão";
+            this.buttonCard.UseVisualStyleBackColor = true;
+            this.buttonCard.Click += new System.EventHandler(this.buttonCard_Click);
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 380);
+            this.ClientSize = new System.Drawing.Size(249, 407);
+            this.Controls.Add(this.buttonCard);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBoxValue);
             this.Controls.Add(this.buttonComma);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.Button buttonComma;
         private System.Windows.Forms.TextBox textBoxValue;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonCard;
     }
 }

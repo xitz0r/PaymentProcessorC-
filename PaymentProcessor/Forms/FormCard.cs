@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentProcessor.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace PaymentProcessor
     {
         private bool inputToLabel = true, firstTime = true;
         private Timer timer = new Timer();
+
+        public Card ReturnValueCard { get; set; }
 
         public FormCard()
         {
@@ -48,6 +51,13 @@ namespace PaymentProcessor
             }
             else
                 e.Handled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.ReturnValueCard = new Card("%b44444444444444444^you/a gift for^23101211000000220000000?\r;44444444444444444=231012110000220?\r;04144?", 123);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void timer_Tick(object sender, EventArgs e)

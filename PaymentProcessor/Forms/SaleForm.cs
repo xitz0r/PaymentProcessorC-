@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PaymentProcessor.Entities;
+using PaymentProcessor.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,9 @@ namespace PaymentProcessor
 {
     public partial class SaleForm : Form
     {
+        private Card card;
+        private string password;
+
         public SaleForm()
         {
             InitializeComponent();
@@ -91,6 +96,35 @@ namespace PaymentProcessor
         private void textBoxValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             //textBoxValue.Text = 
+        }
+
+        private void buttonCard_Click(object sender, EventArgs e)
+        {
+            FormCard formCard = new FormCard();
+            DialogResult showFormCard;
+
+            this.Hide();
+            showFormCard = formCard.ShowDialog();
+
+            if (showFormCard == DialogResult.OK)
+            {
+                this.card = formCard.ReturnValueCard;
+
+                PasswordForm passwordForm = new PasswordForm();
+                this.Hide();
+                showFormCard = passwordForm.ShowDialog();
+
+                if (showFormCard == DialogResult.OK)
+                {
+                    this.password = passwordForm.ReturnValuePassword;
+
+                    Sale sale = new Sale(double.Parse(this.textBoxValue.Text), this.card, this.password);
+                    sale.send();
+                    this.Close();
+                }
+            }
+            else
+                this.Show();
         }
     }
 }
