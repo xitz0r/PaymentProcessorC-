@@ -1,0 +1,5 @@
+/PaymentProcessor/bin/
+/PaymentProcessor/obj/
+/PaymentProcessorAPI/obj/
+/PaymentProcessorAPI/bin/
+.vs/
