@@ -29,16 +29,12 @@ namespace PaymentProcessorAPI.Controllers
 
             student = card.Student;
 
-            if (sale.IsReload)
+            if (sale.IsReload || sale.WasRefunded)
             {
                 saleDAO.Add(sale);
                 student.Balance += sale.Value;
                 studentDAO.Update(student);
                 return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            else if (sale.WasRefunded)
-            {
-                //TODO
             }
             else //sale
             {
@@ -53,8 +49,6 @@ namespace PaymentProcessorAPI.Controllers
                 else
                     return Request.CreateResponse(HttpStatusCode.Unauthorized);
             }
-
-            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
     }
 }
