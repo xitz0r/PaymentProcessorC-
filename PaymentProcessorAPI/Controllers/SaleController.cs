@@ -31,7 +31,10 @@ namespace PaymentProcessorAPI.Controllers
 
             if (sale.IsReload)
             {
-                //TODO
+                saleDAO.Add(sale);
+                student.Balance += sale.Value;
+                studentDAO.Update(student);
+                return Request.CreateResponse(HttpStatusCode.OK);
             }
             else if (sale.WasRefunded)
             {
