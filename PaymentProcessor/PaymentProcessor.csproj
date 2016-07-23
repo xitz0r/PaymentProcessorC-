@@ -122,6 +122,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CardDAO.cs" />
+    <Compile Include="DAO\SaleDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="Entities\Email.cs" />
     <Compile Include="Domain Classes\Encryptor.cs" />

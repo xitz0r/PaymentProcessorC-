@@ -12,9 +12,9 @@ namespace PaymentProcessor.Entities
     public class Sale
     {
         [JsonProperty]
-        protected Card card;
+        public virtual Card Card { get; set; }
         [JsonProperty]
-        protected string password;
+        public virtual string Password { get; set; }
 
         public virtual int Id { get; set; }
         [JsonProperty]
@@ -34,8 +34,8 @@ namespace PaymentProcessor.Entities
         public Sale(double txValue, Card card, string password)
         {
             this.Value = txValue;
-            this.card = card;
-            this.password = password;
+            this.Card = card;
+            this.Password = password;
             this.DateTimeSale = DateTime.Now;
         }
 

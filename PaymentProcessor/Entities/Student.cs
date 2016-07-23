@@ -55,6 +55,12 @@ namespace PaymentProcessor.Entities
         {
             this.Password = Encryptor.MD5Hash(password.ToString());
         }
+
+        public virtual bool CheckPassword(string password)
+        {
+            string insertedPassword = Encryptor.MD5Hash(password);
+            return insertedPassword == this.Password;
+        }
     }
 
     public class InvalidCPFException : Exception
