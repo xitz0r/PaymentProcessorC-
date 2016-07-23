@@ -36,10 +36,10 @@ namespace PaymentProcessor.DAO
             return session.Get<Sale>(id);
         }
 
-        public void Update(Sale sale)
+        public void SaveOrUpdate(Sale sale)
         {
             ITransaction transacao = session.BeginTransaction();
-            session.Update(sale);
+            session.SaveOrUpdate(sale);
             transacao.Commit();
         }
     }
