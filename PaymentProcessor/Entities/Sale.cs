@@ -27,6 +27,7 @@ namespace PaymentProcessor.Entities
         public virtual bool WasRefunded { get; set; }
         [JsonProperty]
         public virtual bool IsReload { get; set; }
+        [JsonProperty]
         public virtual Student Student { get; set; }
         [JsonProperty]
         public virtual Terminal Terminal { get; set; }
