@@ -41,5 +41,13 @@ namespace PaymentProcessor
             studentidform.ShowDialog();
             this.Show();
         }
+
+        private void buttonRefill_Click(object sender, EventArgs e)
+        {
+            StudentIDRecForm studentidrecform = new StudentIDRecForm();
+            this.Hide();
+            studentidrecform.ShowDialog();
+            this.Show();
+        }
     }
 }

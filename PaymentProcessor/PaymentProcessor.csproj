@@ -136,6 +136,12 @@
     <Compile Include="Forms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RechForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RechForm.Designer.cs">
+      <DependentUpon>RechForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentIDForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Forms\PasswordForm.Designer.cs">
       <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentIDRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentIDRecForm.Designer.cs">
+      <DependentUpon>StudentIDRecForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Infra\NHibernateHelper.cs" />
     <Compile Include="Program.cs" />
@@ -208,8 +220,14 @@
     <EmbeddedResource Include="Forms\PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RechForm.resx">
+      <DependentUpon>RechForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentIDForm.resx">
       <DependentUpon>StudentIDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentIDRecForm.resx">
+      <DependentUpon>StudentIDRecForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

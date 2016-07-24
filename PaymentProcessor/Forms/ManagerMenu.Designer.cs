@@ -63,6 +63,7 @@
             this.buttonRefill.TabIndex = 2;
             this.buttonRefill.Text = "Recarga";
             this.buttonRefill.UseVisualStyleBackColor = true;
+            this.buttonRefill.Click += new System.EventHandler(this.buttonRefill_Click);
             // 
             // buttonEdit
             // 
