@@ -166,7 +166,6 @@
             this.textBoxValue.Size = new System.Drawing.Size(162, 31);
             this.textBoxValue.TabIndex = 1;
             this.textBoxValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValue_KeyPress);
             // 
             // buttonClear
             // 
@@ -199,6 +198,7 @@
             // 
             // SaleForm
             // 
+            this.AcceptButton = this.buttonCard;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(249, 407);
