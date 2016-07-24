@@ -100,31 +100,35 @@ namespace PaymentProcessor
 
         private void buttonCard_Click(object sender, EventArgs e)
         {
-            FormCard formCard = new FormCard();
-            DialogResult showFormCard;
-
-            this.Hide();
-            showFormCard = formCard.ShowDialog();
-
-            if (showFormCard == DialogResult.OK)
+            if(textBoxValue.Text!="")
             {
-                this.card = formCard.ReturnValueCard;
+                FormCard formCard = new FormCard();
+                DialogResult showFormCard;
 
-                PasswordForm passwordForm = new PasswordForm();
                 this.Hide();
-                showFormCard = passwordForm.ShowDialog();
+                showFormCard = formCard.ShowDialog();
 
                 if (showFormCard == DialogResult.OK)
                 {
-                    this.password = passwordForm.ReturnValuePassword;
+                    this.card = formCard.ReturnValueCard;
 
-                    Sale sale = new Sale(double.Parse(this.textBoxValue.Text), this.card, this.password);
-                    sale.send();
-                    this.Close();
+                    PasswordForm passwordForm = new PasswordForm();
+                    this.Hide();
+                    showFormCard = passwordForm.ShowDialog();
+
+                    if (showFormCard == DialogResult.OK)
+                    {
+                        this.password = passwordForm.ReturnValuePassword;
+                        Sale sale = new Sale(double.Parse(this.textBoxValue.Text), this.card, this.password);
+                        MessageBox.Show(sale.send());
+                       
+                       
+                        this.Close();
+                    }
                 }
+                else
+                    this.Show();
             }
-            else
-                this.Show();
         }
     }
 }
