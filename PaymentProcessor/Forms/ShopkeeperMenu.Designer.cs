@@ -59,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(347, 184);
             this.Controls.Add(this.buttonRefund);
             this.Controls.Add(this.buttonSale);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShopkeeperMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

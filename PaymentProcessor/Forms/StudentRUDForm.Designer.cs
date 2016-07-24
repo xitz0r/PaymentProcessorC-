@@ -277,6 +277,7 @@
             this.Controls.Add(this.emailParentTextBox);
             this.Controls.Add(balanceLabel);
             this.Controls.Add(this.balanceTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentRUDForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -69,6 +69,7 @@
             this.Controls.Add(this.okPin);
             this.Controls.Add(this.pinText);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PasswordForm";
             this.Text = "PasswordForm";
             this.ResumeLayout(false);

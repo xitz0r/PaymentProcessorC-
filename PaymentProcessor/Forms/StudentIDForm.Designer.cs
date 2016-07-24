@@ -79,6 +79,7 @@
             this.Controls.Add(this.okMat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.matAluno);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "StudentIDForm";
             this.Text = "Matricula";
             this.ResumeLayout(false);

@@ -84,7 +84,7 @@
             this.Controls.Add(this.buttonRefill);
             this.Controls.Add(this.buttonCard);
             this.Controls.Add(this.buttonRegister);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManagerMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
