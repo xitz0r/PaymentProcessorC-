@@ -19,6 +19,7 @@ namespace PaymentProcessor.Entities
 
         private string PANTrack1, PANTrack2;
         private string expirationDateTrack1, expirationDateTrack2;
+        private static char sentinel= '¨';
 
         public Card() { }
 
@@ -26,6 +27,7 @@ namespace PaymentProcessor.Entities
         {
             this.FillTrackData(trackData);
             this.CVV2 = cvv2;
+          
         }
 
         private void FillTrackData(string trackdata)
@@ -66,12 +68,12 @@ namespace PaymentProcessor.Entities
 
             while (i < track.Length && char.IsDigit(track[i]))  //reading PAN until flag [^]
                 this.PANTrack1 += track[i++];
-            i++;    //jumping first over [^]
+            i++;    //jumping first over [¨]
 
 
-            while (i < track.Length && track[i] != '^')  //reading cardholder name until second flag [^]
+            while (i < track.Length && track[i] != sentinel)  //reading cardholder name until second flag [^]
                 i++;    //TODO create a field in the database and class for the cardholder name
-            i++;    //jumping over second [^]
+            i++;    //jumping over second [¨]
 
 
             this.expirationDateTrack1 = track.Substring(i, 4);
@@ -90,7 +92,7 @@ namespace PaymentProcessor.Entities
                 return;
 
             track = track.Replace(";", String.Empty);
-            track = track.Replace("?", String.Empty);
+            track = track.Replace("ç", String.Empty);
 
             this.PANTrack2 = track.Split('=')[0];
             this.expirationDateTrack2 = track.Split('=')[1].Substring(0, 4);
