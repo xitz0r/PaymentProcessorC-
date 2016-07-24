@@ -98,9 +98,21 @@ namespace PaymentProcessor
             //textBoxValue.Text = 
         }
 
+        private static bool IsNumeric(string data)
+        {
+            bool isnumeric = false;
+            char[] datachars = data.ToCharArray();
+
+            foreach (var datachar in datachars)
+                isnumeric = isnumeric ? char.IsDigit(datachar) : isnumeric;
+
+
+            return isnumeric;
+        }
+
         private void buttonCard_Click(object sender, EventArgs e)
         {
-            if(textBoxValue.Text!="")
+            if (IsNumeric(textBoxValue.Text))
             {
                 FormCard formCard = new FormCard();
                 DialogResult showFormCard;
@@ -121,14 +133,16 @@ namespace PaymentProcessor
                         this.password = passwordForm.ReturnValuePassword;
                         Sale sale = new Sale(double.Parse(this.textBoxValue.Text), this.card, this.password);
                         MessageBox.Show(sale.send());
-                       
-                       
+
+
                         this.Close();
                     }
                 }
                 else
                     this.Show();
             }
+            else
+                MessageBox.Show("Insira um valor válido.");
         }
     }
 }
