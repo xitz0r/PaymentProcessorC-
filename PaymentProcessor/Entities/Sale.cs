@@ -70,7 +70,7 @@ namespace PaymentProcessor.Entities
                 if(e.Status == WebExceptionStatus.ProtocolError && e.Response!= null)
                 {
                     var resp = (HttpWebResponse)e.Response;
-                    if(resp.StatusCode == HttpStatusCode.NotFound)
+                    if (resp.StatusCode == HttpStatusCode.NotFound)
                         return "Cartão não encontrado";
                     else if (resp.StatusCode == HttpStatusCode.NoContent)
                         return "Erro interno";
@@ -78,6 +78,8 @@ namespace PaymentProcessor.Entities
                         return "Saldo insuficiente";
                     else if (resp.StatusCode == HttpStatusCode.Conflict)
                         return "Senha inválida";
+                    else if (resp.StatusCode == HttpStatusCode.UpgradeRequired)
+                        return "Cartão bloqueado";
                 }
                 return "Erro de comunicação";
             }         
