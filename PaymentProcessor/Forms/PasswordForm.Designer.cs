@@ -65,7 +65,7 @@
             this.AcceptButton = this.okPin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(242, 177);
+            this.ClientSize = new System.Drawing.Size(233, 147);
             this.Controls.Add(this.okPin);
             this.Controls.Add(this.pinText);
             this.Controls.Add(this.label1);

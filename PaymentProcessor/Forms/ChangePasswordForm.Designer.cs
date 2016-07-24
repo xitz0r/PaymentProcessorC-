@@ -39,10 +39,10 @@
             // 
             // buttonConfirm
             // 
-            this.buttonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirm.Location = new System.Drawing.Point(40, 149);
+            this.buttonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.buttonConfirm.Location = new System.Drawing.Point(34, 106);
             this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(169, 60);
+            this.buttonConfirm.Size = new System.Drawing.Size(74, 25);
             this.buttonConfirm.TabIndex = 3;
             this.buttonConfirm.Text = "Confirmar";
             this.buttonConfirm.UseVisualStyleBackColor = true;
@@ -51,49 +51,49 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(276, 149);
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.buttonCancel.Location = new System.Drawing.Point(146, 106);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(169, 60);
+            this.buttonCancel.Size = new System.Drawing.Size(74, 25);
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(282, 41);
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxPassword.Location = new System.Drawing.Point(120, 41);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(163, 38);
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxPasswordConfirm
             // 
-            this.textBoxPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordConfirm.Location = new System.Drawing.Point(282, 88);
+            this.textBoxPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxPasswordConfirm.Location = new System.Drawing.Point(120, 73);
             this.textBoxPasswordConfirm.Name = "textBoxPasswordConfirm";
-            this.textBoxPasswordConfirm.Size = new System.Drawing.Size(163, 38);
+            this.textBoxPasswordConfirm.Size = new System.Drawing.Size(100, 20);
             this.textBoxPasswordConfirm.TabIndex = 2;
             this.textBoxPasswordConfirm.UseSystemPasswordChar = true;
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelPassword.Location = new System.Drawing.Point(34, 44);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(92, 31);
+            this.labelPassword.Size = new System.Drawing.Size(38, 13);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Senha";
             // 
             // labelPasswordConfirm
             // 
             this.labelPasswordConfirm.AutoSize = true;
-            this.labelPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPasswordConfirm.Location = new System.Drawing.Point(34, 91);
+            this.labelPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelPasswordConfirm.Location = new System.Drawing.Point(31, 73);
             this.labelPasswordConfirm.Name = "labelPasswordConfirm";
-            this.labelPasswordConfirm.Size = new System.Drawing.Size(214, 31);
+            this.labelPasswordConfirm.Size = new System.Drawing.Size(83, 13);
             this.labelPasswordConfirm.TabIndex = 5;
             this.labelPasswordConfirm.Text = "Confirmar senha";
             // 
@@ -103,7 +103,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(514, 253);
+            this.ClientSize = new System.Drawing.Size(301, 182);
             this.Controls.Add(this.labelPasswordConfirm);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPasswordConfirm);
