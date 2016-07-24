@@ -94,12 +94,6 @@ namespace PaymentProcessor
                 textBoxValue.Text += ",";
         }
 
-        private void textBoxValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                buttonCard_Click(sender, e);
-        }
-   
         private void buttonCard_Click(object sender, EventArgs e)
         {
             double value;
