@@ -2,7 +2,9 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,11 +41,46 @@ namespace PaymentProcessor.Entities
             this.DateTimeSale = DateTime.Now;
         }
 
-        public virtual void send()
-        {
-            string output = JsonConvert.SerializeObject(this, Formatting.Indented);
 
-            Console.Write(output);
+        public virtual string send()
+        {
+            string incomingMsg;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.25.66:56556/api/sale/");
+            //request.Method = "GET";
+            request.Method = "POST";
+            //request.Accept = "application/xml";
+            request.ContentType = "application/json";
+
+            byte[] jsonBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this, Formatting.Indented));
+            request.GetRequestStream().Write(jsonBytes, 0, jsonBytes.Length);
+            HttpWebResponse response;
+            try
+            {
+
+                response = (HttpWebResponse)request.GetResponse();
+                using (Stream responseStreamer = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStreamer, Encoding.UTF8);
+                    incomingMsg = reader.ReadToEnd();
+                }
+                return "Aprovado";
+            }
+            catch (WebException e)
+            {
+                if(e.Status == WebExceptionStatus.ProtocolError && e.Response!= null)
+                {
+                    var resp = (HttpWebResponse)e.Response;
+                    if(resp.StatusCode == HttpStatusCode.NotFound)
+                        return "Cartão não encontrado";
+                    else if (resp.StatusCode == HttpStatusCode.NoContent)
+                        return "Erro interno";
+                    else if (resp.StatusCode == HttpStatusCode.Unauthorized)
+                        return "Saldo insuficiente";
+                    else if (resp.StatusCode == HttpStatusCode.Conflict)
+                        return "Senha inválida";
+                }
+                return "Erro de comunicação";
+            }         
         }
     }
 }
