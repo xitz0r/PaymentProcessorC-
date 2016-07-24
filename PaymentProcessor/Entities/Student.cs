@@ -58,8 +58,7 @@ namespace PaymentProcessor.Entities
 
         public virtual bool CheckPassword(string password)
         {
-            string insertedPassword = Encryptor.MD5Hash(password);
-            return insertedPassword == this.Password;
+            return password == this.Password;
         }
     }
 
