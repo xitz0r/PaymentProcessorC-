@@ -14,7 +14,7 @@
     <property name="IsReload" not-null="true"/>
 
     <many-to-one name="Student" class="Student" not-null="true"/>
-    <many-to-one name="Terminal" class="Terminal" not-null="true"/>
+    <many-to-one name="Terminal" class="Terminal"/>
 
   </class>
 
