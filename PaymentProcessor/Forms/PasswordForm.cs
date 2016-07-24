@@ -17,6 +17,7 @@ namespace PaymentProcessor.Forms
         public PasswordForm()
         {
             InitializeComponent();
+            this.ActiveControl = pinText;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,11 +25,6 @@ namespace PaymentProcessor.Forms
             ReturnValuePassword = Encryptor.MD5Hash("1234");
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void PasswordForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void okPin_Click(object sender, EventArgs e)
