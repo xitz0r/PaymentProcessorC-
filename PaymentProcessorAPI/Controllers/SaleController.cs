@@ -1,4 +1,5 @@
-﻿using PaymentProcessor.DAO;
+﻿using NHibernate;
+using PaymentProcessor.DAO;
 using PaymentProcessor.Entities;
 using PaymentProcessor.Infra;
 using System;
@@ -17,9 +18,10 @@ namespace PaymentProcessorAPI.Controllers
             if (sale == null)
                 Request.CreateResponse(HttpStatusCode.NoContent);
 
-            SaleDAO saleDAO = new SaleDAO(NHibernateHelper.OpenSession());
-            CardDAO cardDAO = new CardDAO(NHibernateHelper.OpenSession());
-            StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
+            ISession session = NHibernateHelper.OpenSession();
+            SaleDAO saleDAO = new SaleDAO(session);
+            CardDAO cardDAO = new CardDAO(session);
+            StudentDAO studentDAO = new StudentDAO(session);
 
             Card card = cardDAO.Get(sale.Card.PAN);
             Student student;
@@ -41,13 +43,18 @@ namespace PaymentProcessorAPI.Controllers
                 //verifying password
                 if (student.CheckPassword(sale.Password))
                 {
+                    if (student.Balance < sale.Value)
+                        return Request.CreateResponse(HttpStatusCode.Unauthorized);
+                    sale.Student = student;
+                    student.Sales.Add(sale);
                     saleDAO.Add(sale);
                     student.Balance -= sale.Value;
                     studentDAO.Update(student);
+                    
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 else
-                    return Request.CreateResponse(HttpStatusCode.Unauthorized);
+                    return Request.CreateResponse(HttpStatusCode.Conflict);
             }
         }
     }
