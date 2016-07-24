@@ -31,7 +31,10 @@ namespace PaymentProcessor.Entities
         [JsonProperty]
         public virtual Terminal Terminal { get; set; }
 
-        public Sale() { }
+        public Sale()
+        {
+            this.DateTimeSale = DateTime.Now;
+        }
 
         public Sale(double txValue, Card card, string password)
         {
@@ -71,15 +74,15 @@ namespace PaymentProcessor.Entities
                 {
                     var resp = (HttpWebResponse)e.Response;
                     if (resp.StatusCode == HttpStatusCode.NotFound)
-                        return "Cartão não encontrado";
+                        return "Cartão não encontrado.";
                     else if (resp.StatusCode == HttpStatusCode.NoContent)
-                        return "Erro interno";
+                        return "Erro interno.";
                     else if (resp.StatusCode == HttpStatusCode.Unauthorized)
-                        return "Saldo insuficiente";
+                        return "Saldo insuficiente.";
                     else if (resp.StatusCode == HttpStatusCode.Conflict)
-                        return "Senha inválida";
+                        return "Senha inválida.";
                     else if (resp.StatusCode == HttpStatusCode.UpgradeRequired)
-                        return "Cartão bloqueado";
+                        return "Cartão bloqueado.";
                 }
                 return "Erro de comunicação";
             }         
