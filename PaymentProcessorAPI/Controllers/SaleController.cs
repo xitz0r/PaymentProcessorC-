@@ -2,6 +2,7 @@
 using PaymentProcessor.DAO;
 using PaymentProcessor.Entities;
 using PaymentProcessor.Infra;
+using PaymentProcessorAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,8 @@ namespace PaymentProcessorAPI.Controllers
                     saleDAO.Add(sale);
                     student.Balance -= sale.Value;
                     studentDAO.Update(student);
+
+                    EmailSender.sendEmail(sale);
 
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
