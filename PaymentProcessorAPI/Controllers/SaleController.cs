@@ -22,17 +22,11 @@ namespace PaymentProcessorAPI.Controllers
             SaleDAO saleDAO = new SaleDAO(session);
             CardDAO cardDAO = new CardDAO(session);
             StudentDAO studentDAO = new StudentDAO(session);
-
-            Card card = cardDAO.Get(sale.Card.PAN);
             Student student;
-
-            if (card == null)
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-
-            student = card.Student;
 
             if (sale.IsReload || sale.WasRefunded)
             {
+                student = studentDAO.Get(sale.Student.Id);
                 saleDAO.Add(sale);
                 student.Balance += sale.Value;
                 studentDAO.Update(student);
@@ -40,21 +34,28 @@ namespace PaymentProcessorAPI.Controllers
             }
             else //sale
             {
-                //verifying password
-                if (student.CheckPassword(sale.Password))
+                Card card = cardDAO.Get(sale.Card.PAN);
+                if (card == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+
+                student = card.Student;
+
+                if (card.Blocked)
+                    return Request.CreateResponse(HttpStatusCode.UpgradeRequired);
+                else if (!student.CheckPassword(sale.Password))
+                    return Request.CreateResponse(HttpStatusCode.Conflict);
+                else if (student.Balance < sale.Value)
+                    return Request.CreateResponse(HttpStatusCode.Unauthorized);
+                else
                 {
-                    if (student.Balance < sale.Value)
-                        return Request.CreateResponse(HttpStatusCode.Unauthorized);
                     sale.Student = student;
                     student.Sales.Add(sale);
                     saleDAO.Add(sale);
                     student.Balance -= sale.Value;
                     studentDAO.Update(student);
-                    
+
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
-                else
-                    return Request.CreateResponse(HttpStatusCode.Conflict);
             }
         }
     }
