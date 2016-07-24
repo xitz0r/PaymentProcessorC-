@@ -20,7 +20,7 @@ namespace PaymentProcessor.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RechForm rechForm = new RechForm();
+            RechForm rechForm = new RechForm(Int32.Parse(textBoxId.Text));
             this.Hide();
             rechForm.ShowDialog();
             this.Show();

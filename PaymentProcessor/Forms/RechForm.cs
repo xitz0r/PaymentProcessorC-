@@ -13,8 +13,11 @@ namespace PaymentProcessor.Forms
 {
     public partial class RechForm : Form
     {
-        public RechForm()
+        private int studentId;
+
+        public RechForm(int id)
         {
+            this.studentId = id;
             InitializeComponent();
         }
 
@@ -24,7 +27,7 @@ namespace PaymentProcessor.Forms
             {
                 Sale sale = new Sale(double.Parse(this.textBoxValue.Text), null, null);
                 Student student = new Student();
-                student.Id = Int32.Parse(textBoxValue.Text);
+                student.Id = this.studentId;
                 sale.Student = student;
                 sale.IsReload = true;
                 MessageBox.Show(sale.send());
