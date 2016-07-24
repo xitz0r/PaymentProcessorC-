@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentProcessor.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,14 @@ namespace PaymentProcessor
             StudentRUDForm studentRUDForm = new StudentRUDForm();
             this.Hide();
             studentRUDForm.ShowDialog();
+            this.Show();
+        }
+
+        private void buttonCard_Click(object sender, EventArgs e)
+        {
+            StudentIDForm studentidform = new StudentIDForm();
+            this.Hide();
+            studentidform.ShowDialog();
             this.Show();
         }
     }
