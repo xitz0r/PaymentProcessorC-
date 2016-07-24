@@ -53,14 +53,7 @@ namespace PaymentProcessor
                 e.Handled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.ReturnValueCard = new Card("%b44444444444444444^you/a gift for^23101211000000220000000?\r;44444444444444444=231012110000220?\r;04144?", 123);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
+          private void timer_Tick(object sender, EventArgs e)
         {
             if (this.InvokeRequired)
             {
@@ -75,6 +68,8 @@ namespace PaymentProcessor
                     if (this.timer.Enabled)
                     {
                         this.timer.Stop();
+                        this.ReturnValueCard = new Card(this.label2.Text, 123);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                 }
