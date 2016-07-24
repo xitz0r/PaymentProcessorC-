@@ -29,27 +29,27 @@ namespace PaymentProcessorAPI.Controllers
             {
                 student = studentDAO.Get(sale.Student.Id);
                 if (student == null)
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    return ReturnResponse(session, HttpStatusCode.NotFound);
 
                 saleDAO.Add(sale);
                 student.Balance += sale.Value;
                 studentDAO.Update(student);
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return ReturnResponse(session, HttpStatusCode.OK);
             }
             else //sale
             {
                 Card card = cardDAO.Get(sale.Card.PAN);
                 if (card == null)
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    return ReturnResponse(session, HttpStatusCode.NotFound);
 
                 student = card.Student;
 
                 if (card.Blocked)
-                    return Request.CreateResponse(HttpStatusCode.UpgradeRequired);
+                    return ReturnResponse(session, HttpStatusCode.UpgradeRequired);
                 else if (!student.CheckPassword(sale.Password))
-                    return Request.CreateResponse(HttpStatusCode.Conflict);
+                    return ReturnResponse(session, HttpStatusCode.Conflict);
                 else if (student.Balance < sale.Value)
-                    return Request.CreateResponse(HttpStatusCode.Unauthorized);
+                    return ReturnResponse(session, HttpStatusCode.Unauthorized);
                 else
                 {
                     sale.Student = student;
@@ -60,9 +60,15 @@ namespace PaymentProcessorAPI.Controllers
 
                     EmailSender.sendEmail(sale);
 
-                    return Request.CreateResponse(HttpStatusCode.OK);
+                    return ReturnResponse(session, HttpStatusCode.OK);
                 }
             }
+        }
+
+        internal HttpResponseMessage ReturnResponse(ISession session, HttpStatusCode code)
+        {
+            session.Close();
+            return Request.CreateResponse(code);
         }
     }
 }

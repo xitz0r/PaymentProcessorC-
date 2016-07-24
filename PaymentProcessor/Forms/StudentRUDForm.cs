@@ -99,6 +99,7 @@ namespace PaymentProcessor
             if (MessageBox.Show("Deseja cancelar?", "Atualizar aluno", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 disable_Edition();
+                this.session.Close();
 
                 this.Fill(this.student);
             }

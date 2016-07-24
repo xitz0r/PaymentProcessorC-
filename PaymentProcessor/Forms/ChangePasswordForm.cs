@@ -1,4 +1,5 @@
-﻿using PaymentProcessor.DAO;
+﻿using NHibernate;
+using PaymentProcessor.DAO;
 using PaymentProcessor.Entities;
 using PaymentProcessor.Infra;
 using System;
@@ -46,10 +47,12 @@ namespace PaymentProcessor.Forms
             }
             else
             {
-                StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
+                ISession session = NHibernateHelper.OpenSession();
+                StudentDAO studentDAO = new StudentDAO(session);
                 Student student = studentDAO.Get(this.studentId);
                 student.ChangePassword(Int32.Parse(textBoxPassword.Text));
                 studentDAO.Update(student);
+                session.Close();
 
                 this.updated = true;
 
