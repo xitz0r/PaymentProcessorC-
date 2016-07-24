@@ -160,8 +160,9 @@
             // 
             this.textBoxValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValue.Location = new System.Drawing.Point(38, 54);
+            this.textBoxValue.MaxLength = 6;
             this.textBoxValue.Name = "textBoxValue";
-            this.textBoxValue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBoxValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBoxValue.Size = new System.Drawing.Size(162, 31);
             this.textBoxValue.TabIndex = 1;
             this.textBoxValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

@@ -20,6 +20,7 @@ namespace PaymentProcessor
         public SaleForm()
         {
             InitializeComponent();
+            this.ActiveControl = textBoxValue;
         }
 
         private void buttonGeneralClick(char key)
@@ -95,24 +96,14 @@ namespace PaymentProcessor
 
         private void textBoxValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //textBoxValue.Text = 
+            if (e.KeyChar == 13)
+                buttonCard_Click(sender, e);
         }
-
-        private static bool IsNumeric(string data)
-        {
-            bool isnumeric = false;
-            char[] datachars = data.ToCharArray();
-
-            foreach (var datachar in datachars)
-                isnumeric = isnumeric ? char.IsDigit(datachar) : isnumeric;
-
-
-            return isnumeric;
-        }
-
+   
         private void buttonCard_Click(object sender, EventArgs e)
         {
-            if (IsNumeric(textBoxValue.Text))
+            double value;
+            if (double.TryParse(textBoxValue.Text, out value))
             {
                 FormCard formCard = new FormCard();
                 DialogResult showFormCard;
@@ -131,7 +122,7 @@ namespace PaymentProcessor
                     if (showFormCard == DialogResult.OK)
                     {
                         this.password = passwordForm.ReturnValuePassword;
-                        Sale sale = new Sale(double.Parse(this.textBoxValue.Text), this.card, this.password);
+                        Sale sale = new Sale(value, this.card, this.password);
                         MessageBox.Show(sale.send());
 
 
@@ -144,5 +135,7 @@ namespace PaymentProcessor
             else
                 MessageBox.Show("Insira um valor válido.");
         }
+
+
     }
 }
