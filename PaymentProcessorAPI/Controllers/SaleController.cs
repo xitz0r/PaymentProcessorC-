@@ -27,6 +27,9 @@ namespace PaymentProcessorAPI.Controllers
             if (sale.IsReload || sale.WasRefunded)
             {
                 student = studentDAO.Get(sale.Student.Id);
+                if (student == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+
                 saleDAO.Add(sale);
                 student.Balance += sale.Value;
                 studentDAO.Update(student);
