@@ -34,5 +34,12 @@ namespace PaymentProcessor.DAO
 
             return criteria.UniqueResult<Card>();
         }
+
+        public void Update(Card card)
+        {
+            ITransaction transacao = session.BeginTransaction();
+            session.Update(card);
+            transacao.Commit();
+        }
     }
 }
