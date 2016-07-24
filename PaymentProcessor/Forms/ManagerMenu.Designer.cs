@@ -53,6 +53,7 @@
             this.buttonCard.TabIndex = 1;
             this.buttonCard.Text = "Cadastrar/Bloquear Cartão";
             this.buttonCard.UseVisualStyleBackColor = true;
+            this.buttonCard.Click += new System.EventHandler(this.buttonCard_Click);
             // 
             // buttonRefill
             // 

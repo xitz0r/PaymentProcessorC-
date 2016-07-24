@@ -25,5 +25,21 @@ namespace PaymentProcessor.Forms
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void PasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void okPin_Click(object sender, EventArgs e)
+        {
+            if (pinText.Text != "")
+            {
+                ReturnValuePassword = Encryptor.MD5Hash(pinText.Text);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
     }
 }
