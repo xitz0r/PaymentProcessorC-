@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentProcessor.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,14 @@ namespace PaymentProcessor
             SaleForm saleForm = new SaleForm();
             this.Hide();
             saleForm.ShowDialog();
+            this.Show();
+        }
+
+        private void buttonBalance_Click(object sender, EventArgs e)
+        {
+            StudentIDBalanceForm studentForm = new StudentIDBalanceForm();
+            this.Hide();
+            studentForm.ShowDialog();
             this.Show();
         }
     }

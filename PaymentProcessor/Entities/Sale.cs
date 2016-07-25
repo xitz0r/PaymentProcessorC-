@@ -71,7 +71,7 @@ namespace PaymentProcessor.Entities
             }
             catch (WebException e)
             {
-                if(e.Status == WebExceptionStatus.ProtocolError && e.Response!= null)
+                if (e.Status == WebExceptionStatus.ProtocolError && e.Response != null)
                 {
                     var resp = (HttpWebResponse)e.Response;
                     if (resp.StatusCode == HttpStatusCode.NotFound)
@@ -85,8 +85,43 @@ namespace PaymentProcessor.Entities
                     else if (resp.StatusCode == HttpStatusCode.UpgradeRequired)
                         return "Cartão bloqueado.";
                 }
+                return "Erro de comunicação.";
+            }
+
+        }
+        public virtual string sendBalance(string studentID)
+        {
+            string incomingMsg;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.25.66:56556/api/student/"+studentID);
+            request.Method = "GET";
+            //request.Method = "POST";
+            //request.Accept = "application/xml";
+            request.ContentType = "application/json";
+
+            HttpWebResponse response;
+            try
+            {
+
+                response = (HttpWebResponse)request.GetResponse();
+                using (Stream responseStreamer = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStreamer, Encoding.UTF8);
+                    incomingMsg = reader.ReadToEnd();
+                }
+                return "Saldo: R$" + incomingMsg;
+            }
+            catch (WebException e)
+            {
+                if (e.Status == WebExceptionStatus.ProtocolError && e.Response != null)
+                {
+                    var resp = (HttpWebResponse)e.Response;
+                    if (resp.StatusCode == HttpStatusCode.NotFound)
+                        return "Matrícula inexistente.";
+                    else
+                        return "Erro interno.";
+                }
                 return "Erro de comunicação";
-            }         
+            }
         }
     }
 }

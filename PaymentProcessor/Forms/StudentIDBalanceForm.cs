@@ -11,20 +11,24 @@ using System.Windows.Forms;
 
 namespace PaymentProcessor.Forms
 {
-    public partial class StudentIDRecForm : Form
+    public partial class StudentIDBalanceForm : Form
     {
-        public StudentIDRecForm()
+
+        public StudentIDBalanceForm()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            RechForm rechForm = new RechForm(Int32.Parse(textBoxId.Text));
-            this.Hide();
-            rechForm.ShowDialog();
-            this.Show();
+            if (textBoxId.Text != "")
+            {
+                //bacalhau
+                Sale sale = new Sale(0, null, null);
+                MessageBox.Show(sale.sendBalance(textBoxId.Text));
+                this.Close();
+            }
         }
 
     }
 }
+

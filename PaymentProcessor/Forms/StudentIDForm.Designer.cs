@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentIDForm));
             this.matAluno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.okMat = new System.Windows.Forms.Button();
@@ -36,7 +37,7 @@
             // 
             // matAluno
             // 
-            this.matAluno.Location = new System.Drawing.Point(12, 53);
+            this.matAluno.Location = new System.Drawing.Point(12, 36);
             this.matAluno.Name = "matAluno";
             this.matAluno.Size = new System.Drawing.Size(100, 20);
             this.matAluno.TabIndex = 0;
@@ -44,7 +45,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
@@ -52,7 +53,7 @@
             // 
             // okMat
             // 
-            this.okMat.Location = new System.Drawing.Point(12, 79);
+            this.okMat.Location = new System.Drawing.Point(12, 62);
             this.okMat.Name = "okMat";
             this.okMat.Size = new System.Drawing.Size(75, 23);
             this.okMat.TabIndex = 2;
@@ -62,7 +63,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(92, 79);
+            this.button1.Location = new System.Drawing.Point(92, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -74,12 +75,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(179, 124);
+            this.ClientSize = new System.Drawing.Size(200, 115);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.okMat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.matAluno);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentIDForm";
             this.Text = "Matricula";
             this.ResumeLayout(false);

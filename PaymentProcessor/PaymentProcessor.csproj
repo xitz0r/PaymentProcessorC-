@@ -142,6 +142,12 @@
     <Compile Include="Forms\RechForm.Designer.cs">
       <DependentUpon>RechForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StudentIDBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentIDBalanceForm.Designer.cs">
+      <DependentUpon>StudentIDBalanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentIDForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RechForm.resx">
       <DependentUpon>RechForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentIDBalanceForm.resx">
+      <DependentUpon>StudentIDBalanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentIDForm.resx">
       <DependentUpon>StudentIDForm.cs</DependentUpon>
