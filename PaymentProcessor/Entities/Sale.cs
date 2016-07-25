@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NHibernate;
+using PaymentProcessor.DAO;
+using PaymentProcessor.Infra;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -97,7 +100,6 @@ namespace PaymentProcessor.Entities
             //request.Method = "POST";
             //request.Accept = "application/xml";
             request.ContentType = "application/json";
-
             HttpWebResponse response;
             try
             {
@@ -108,7 +110,13 @@ namespace PaymentProcessor.Entities
                     StreamReader reader = new StreamReader(responseStreamer, Encoding.UTF8);
                     incomingMsg = reader.ReadToEnd();
                 }
-                return "Saldo: R$" + incomingMsg;
+
+                ISession session = NHibernateHelper.OpenSession();
+                StudentDAO studentDAO = new StudentDAO(session);
+                Student student = studentDAO.Get(Int32.Parse(studentID));
+                String student_name = student.Name+" "+student.LastName;
+                session.Close();
+                return "Saldo do aluno "+student_name+": R$" + incomingMsg;
             }
             catch (WebException e)
             {
