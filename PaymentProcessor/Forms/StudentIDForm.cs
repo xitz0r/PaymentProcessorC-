@@ -48,16 +48,17 @@ namespace PaymentProcessor.Forms
                             foreach (Card c in student.Cards)
                                 if (!c.Blocked)
                                 {
-                                    MessageBox.Show("Erro", "Já existe um cartão ativo");
+                                    MessageBox.Show("Já existe um cartão ativo.", "Erro");
                                     return;
                                 }
 
                             student.Cards.Add(card);
                             cardDAO.Add(card);
                             studentDAO.Update(student);
+                            MessageBox.Show("Cartão cadastrado com sucesso para "+student.Name+" "+student.LastName+".","Cadastro de cartão");
                         }
                         else
-                            MessageBox.Show("Erro", "Cartão já cadastrado");
+                            MessageBox.Show("Cartão já cadastrado para um aluno.", "Erro" );
                     }
                     session.Close();
                 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordForm));
             this.label1 = new System.Windows.Forms.Label();
             this.pinText = new System.Windows.Forms.TextBox();
             this.okPin = new System.Windows.Forms.Button();
@@ -70,7 +71,9 @@
             this.Controls.Add(this.pinText);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Senha";
             this.ResumeLayout(false);
             this.PerformLayout();

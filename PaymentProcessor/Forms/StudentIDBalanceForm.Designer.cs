@@ -58,9 +58,11 @@
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 20);
             this.textBoxId.TabIndex = 3;
+            this.textBoxId.Enter += new System.EventHandler(this.button1_Click);
             // 
             // StudentIDBalanceForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(211, 122);
@@ -68,6 +70,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxId);
             this.Name = "StudentIDBalanceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Saldo";
             this.ResumeLayout(false);
             this.PerformLayout();

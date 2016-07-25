@@ -221,7 +221,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SaleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SaleForm";
+            this.Text = "Venda";
             this.ResumeLayout(false);
             this.PerformLayout();
 
