@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopkeeperMenu));
             this.buttonSale = new System.Windows.Forms.Button();
-            this.buttonRefund = new System.Windows.Forms.Button();
+            this.buttonBalance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSale
@@ -43,22 +43,24 @@
             this.buttonSale.UseVisualStyleBackColor = true;
             this.buttonSale.Click += new System.EventHandler(this.buttonSale_Click);
             // 
-            // buttonRefund
+            // buttonBalance
             // 
-            this.buttonRefund.Location = new System.Drawing.Point(191, 41);
-            this.buttonRefund.Name = "buttonRefund";
-            this.buttonRefund.Size = new System.Drawing.Size(112, 100);
-            this.buttonRefund.TabIndex = 2;
-            this.buttonRefund.Text = "Estorno";
-            this.buttonRefund.UseVisualStyleBackColor = true;
+            this.buttonBalance.Location = new System.Drawing.Point(191, 41);
+            this.buttonBalance.Name = "buttonBalance";
+            this.buttonBalance.Size = new System.Drawing.Size(112, 100);
+            this.buttonBalance.TabIndex = 2;
+            this.buttonBalance.Text = "Saldo";
+            this.buttonBalance.UseVisualStyleBackColor = true;
+            this.buttonBalance.Click += new System.EventHandler(this.buttonBalance_Click);
             // 
             // ShopkeeperMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 184);
-            this.Controls.Add(this.buttonRefund);
+            this.Controls.Add(this.buttonBalance);
             this.Controls.Add(this.buttonSale);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShopkeeperMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -70,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSale;
-        private System.Windows.Forms.Button buttonRefund;
+        private System.Windows.Forms.Button buttonBalance;
     }
 }

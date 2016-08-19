@@ -40,10 +40,7 @@ namespace PaymentProcessor.DAO
 
         public Student Get(int id)
         {
-            ITransaction transaction = session.BeginTransaction();
-            Student student = session.Get<Student>(id);
-            transaction.Commit();
-            return student;
+            return session.Get<Student>(id);
         }
 
         public Student GetNextAfter(int id)
@@ -76,6 +73,13 @@ namespace PaymentProcessor.DAO
             catch (Exception) { }
 
             return student;
+        }
+
+        public void Update(Student student)
+        {
+            ITransaction transacao = session.BeginTransaction();
+            session.Update(student);
+            transacao.Commit();
         }
     }
 }

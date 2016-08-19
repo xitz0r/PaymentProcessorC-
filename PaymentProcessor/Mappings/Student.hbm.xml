@@ -18,8 +18,8 @@
       <one-to-many class="Card"/>
     </bag>
     
-    <one-to-one name="EmailStudent" class="Email" cascade="all"/>
-    <one-to-one name="EmailParent" class="Email" cascade="all"/>
+    <many-to-one name="EmailStudent" class="Email" cascade="all"/>
+    <many-to-one name="EmailParent" class="Email" cascade="all"/>
 
     <property name="Balance" not-null="true"/>
     <property name="Password" not-null="true"/>

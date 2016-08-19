@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaymentProcessor.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace PaymentProcessor
     {
         private bool inputToLabel = true, firstTime = true;
         private Timer timer = new Timer();
+
+        public Card ReturnValueCard { get; set; }
 
         public FormCard()
         {
@@ -50,7 +53,7 @@ namespace PaymentProcessor
                 e.Handled = false;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+          private void timer_Tick(object sender, EventArgs e)
         {
             if (this.InvokeRequired)
             {
@@ -65,6 +68,8 @@ namespace PaymentProcessor
                     if (this.timer.Enabled)
                     {
                         this.timer.Stop();
+                        this.ReturnValueCard = new Card(this.label2.Text, 123);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                 }

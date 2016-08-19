@@ -1,4 +1,5 @@
-﻿using PaymentProcessor.DAO;
+﻿using NHibernate;
+using PaymentProcessor.DAO;
 using PaymentProcessor.Entities;
 using PaymentProcessor.Infra;
 using System;
@@ -45,12 +46,15 @@ namespace PaymentProcessor
                                     this.dateTimePickerNascimento.Value,
                                     new Email(this.textBoxEmailStudent.Text),
                                     new Email(this.textBoxEmailParent.Text),
-                                    this.textBoxPassword.Text);
+                                    Int32.Parse(this.textBoxPassword.Text));
 
-                StudentDAO studentDAO = new StudentDAO(NHibernateHelper.OpenSession());
+                ISession session = NHibernateHelper.OpenSession();
+                StudentDAO studentDAO = new StudentDAO(session);
                 studentDAO.Add(student);
                 bSaved = true;
+                session.Close();
                 MessageBox.Show("Cadastro efetuado com sucesso!\n\nMatrícula: " + student.Id, "Cadastro");
+                
                 this.Close();
             }
             catch (Exception ex)    //at least one field with error
